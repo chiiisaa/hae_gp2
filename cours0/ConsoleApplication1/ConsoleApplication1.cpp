@@ -3,11 +3,71 @@
 
 #include "pch.h"
 #include <iostream>
+#include <string>
 #include "Vec2.hpp"
+#include "Vec2T.h"
+#include "Vec3T.h"
+#include "arr.h"
+
+using namespace std;
+
+void subFunc()
+{
+	arr<int> * foo = new arr<int>(4);
+
+	cout << foo->get(0) << endl;
+
+	delete foo;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	/*Vec2 a(16, 23);
+
+	Vec2T<int> t0(4, 4);
+	Vec2T<int> t1(4, 4);
+
+	auto tres = t1.Add(t0);
+
+	Vec3T<int> t3(3, 3, 3);
+	Vec3T<int> t4(5, 5, 5);
+
+	auto t = t3.ADD(t4);
+
+	cout << to_string(tres.x) << endl;
+
+	Vec2T<char> vc0('a', 'b');
+	Vec2T<char> vc1('c', 'd');
+	auto vcres = vc0.Add(vc1);
+
+	cout << string(1, 'a') << endl;
+	cout << string(1, vcres.x) << string(1, vcres.y) << endl;
+	auto end = 0;
+
+	int tab[] = { 0,1,2,3 };
+	int szTab = sizeof(tab) / sizeof(int);
+	for (int i = 0; i < szTab; i++)
+	{
+		cout << tab[i];
+	}
+
+	int* c0 = tab;
+	int* c1 = &(tab[0]);
+
+	int valC = *c0++;
+
+	Vec2 de(33, 44);
+	Vec2 dee(55, 55);
+	de.incr(&dee);
+	cout << to_string(dee.x) << endl;
+
+	Vec2* c = new Vec2(66,0);
+
+	cout << endl;*/
+
+	subFunc();
+
+	cout << endl;
 }
 
 

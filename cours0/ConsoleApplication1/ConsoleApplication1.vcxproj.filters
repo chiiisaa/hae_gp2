@@ -21,12 +21,27 @@
     <ClInclude Include="Vec2.hpp">
       <Filter>Fichiers de ressources</Filter>
     </ClInclude>
+    <ClInclude Include="Vec2T.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec3T.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="arr.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleApplication1.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2T.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec3T.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
