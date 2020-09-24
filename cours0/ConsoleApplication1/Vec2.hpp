@@ -17,5 +17,6 @@ public:
 		Vec2 xy;
 		xy.x = this->x + v.x;
 		xy.y = this->y + v.y;
+		
 	}
 };
