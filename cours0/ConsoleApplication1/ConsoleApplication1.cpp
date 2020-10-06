@@ -1,10 +1,12 @@
 // ConsoleApplication1.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include "pch.h"
+
 #include <iostream>
 #include <functional>
 #include <string>
+#include <cstdlib>
+
 #include "Vec2.hpp"
 #include "Vec2T.h"
 #include "Vec3T.h"
@@ -16,7 +18,7 @@ using namespace std;
 
 void subFunc()
 {
-	arr<int> * foo = new arr<int>(4);
+	arr<int>* foo = new arr<int>(4);
 
 	cout << foo->get(0) << endl;
 
@@ -52,7 +54,7 @@ void subFunc1()
 
 	Node* n = new Node(1, new Node(2), new Node(3));
 	n = n->deleteMin();
-	if(!n->isOk()) throw " root is not a valid heap";
+	if (!n->isOk()) throw " root is not a valid heap";
 
 	//root = root->deleteMin();
 	root = root->remove(12);
@@ -62,7 +64,7 @@ void subFunc1()
 
 }
 
-int StringLengh(const char * str) {
+int StringLengh(const char* str) {
 	int compt = 0;
 	while (*str != 0)
 	{
@@ -97,10 +99,205 @@ void subFunc2()
 	cout << sapin << endl;
 }
 
-DynArr<float> * doHeapSort(float* tab, int tabSize)
+void Mency(char* dst, char* src, int size)
 {
-	DynArr<float> * f = new DynArr<float>(tabSize);
-	Node * root = new Node(tab[0]);
+	for (int i = 0; i < size; i++)
+	{
+		*dst = *src;
+		dst++;
+		src++;
+	}
+}
+//rechercher le char ou les chaines dans le contenu
+char* StrChr(char* grange, char chat)
+{
+	//tant que valeur grange ne veut pas 0
+	//si on a le bon caractere renvoyé le pointeur courant
+	//sinon avancer grange
+	//retourner nullptr
+	while (*grange != 0)
+	{
+		if (chat == *grange)
+		{
+			return grange;
+		}
+		grange++;
+	}
+	return nullptr;
+}
+
+//renvoie true sur meule commence par aiguille
+//sinon envoie false
+bool startsWith(char* meule, char* aiguille)
+{
+	int longueurMeule = StringLengh(meule);
+	int longueuraiguille = StringLengh(aiguille);
+
+	if (longueurMeule > longueurMeule) return false;
+	for (int i = 0; i < StringLengh(aiguille); i++)
+	{
+		if (aiguille[i] != meule[i])
+		{
+			return false;
+		}
+	}
+	return true;
+	//pour chaque character de aiguille
+	//	si meule est fini
+	//		renvoie faux
+
+	//on a trouvé 
+
+}
+char* StrStr(char* meule, char* aiguille)
+{
+	if (aiguille == nullptr && meule == nullptr)return nullptr;
+	if (meule == nullptr) return nullptr;
+	if (*meule == 0) return nullptr;
+
+	if (startsWith(meule, aiguille))
+	{
+		return meule;
+	}
+	else
+	{
+		return StrStr(meule + 1, aiguille);
+	}
+}
+
+int add(int a, int b)
+{
+	//on a le droit a 0 1 et operation + 1
+	//
+	//transformer l'appel en recursion
+	//plutot que d'écrire return a+b
+	//appeler (a+1) b fois
+	//a + b => (a+1), (b-1) ... b fois jusque b = 0 dans ce cas renvoyer a
+
+	/*if (b == 0) return a;
+	a = a + 1;
+	b= b - 1;
+	return add(a, b);*/
+
+	if (b == 0)
+		return a;
+	if (b < 0)
+		return -1 + add(a, b + 1);
+	else
+		return 1 + add(a, b - 1);
+
+}
+
+int sub(int a, int b)
+{
+	/*if (b == 0) return a;
+	a = a - 1;
+	b = b - 1;
+	return sub(a, b);*/
+
+	if (b == 0)
+		return a;
+	if (b < 0)
+		return -1 + sub(a, b - 1);
+	else
+	{
+		return add(a, -b);
+	}
+}
+
+int mul(int a, int b)
+{
+	if (b == 0) return 0;
+	if (b < 0)
+		return -a + mul(a, b + 1);
+	else
+		return a + mul(a, b - 1);
+}
+
+int divition(int a, int b)
+{
+	if (b == 0) return 0;
+	if (b == 1) return a;
+
+	if (b < 0) return  -divition(a, -b);
+	if (a < 0) return  -divition(-a, b);
+
+	if (a < b) return 0;
+
+	else
+	{
+		return 1 + divition(a - b, b); // div(a,b)  => 1 + (a-b) / b
+	}
+
+}
+
+int modulo(int a, int b)
+{
+	if (b == 0) return 0;
+	if (b == 1) return 0;
+
+	if (b < 0) return  -modulo(a, -b);
+	if (a < 0) return  -modulo(-a, b);
+
+	if (a < b) return a;
+	else
+	{
+		return modulo(a - b, b);
+	}
+}
+
+//1 si a est supérieur lexicographiquement
+//0 si a est égal lexicographiquement
+//-1 si a est inférieur lexicographiquement
+int StrCmp(const char* a, const char* b)
+{
+	// si a est vide et b est vide
+	if (*a == 0 && *b == 0) return 0;
+	if (*a == 0) return -1; //a vide
+	if (*b == 0) return 1; //b vide
+	if (*a < *b)
+		return -1;
+	if (*a > * b)
+		return 1;
+	else
+		return StrCmp(a + 1, b + 1);
+}
+
+void subFunction5()
+{
+	/*cout << add(5, 6) << endl;
+	cout << sub(5, 6) << endl;
+	cout << mul(4, -5) << endl;
+	cout << divition(10, 2) << endl;
+	cout << divition(-10, 2) << endl;
+	cout << modulo(5, 3) << endl;
+
+	cout << modulo(15, 7) << endl;
+	cout << modulo(-15, 7) << endl;
+	cout << modulo(15, 20) << endl;
+	cout << modulo(15, 3) << endl;*/
+	cout << StrCmp("c", "a") << endl;
+}
+
+void subFunction4()
+{
+	char data[] = { 1,2,3,4,5,6 };
+	char* dest = (char*)malloc(16);
+	for (int i = 0; i < 16; i++) dest[i] = 0;
+
+	Mency(dest, data, sizeof(data) * sizeof(char));
+
+	char pin[] = "pin";
+	char forest[] = "sapinsapin";
+	char* res = strstr(forest, pin);
+
+
+}
+
+DynArr<float>* doHeapSort(float* tab, int tabSize)
+{
+	DynArr<float>* f = new DynArr<float>(tabSize);
+	Node* root = new Node(tab[0]);
 	for (int i = 1; i < tabSize; ++i)
 	{
 		root = root->heapify(tab[i]);
@@ -131,7 +328,7 @@ DynArr<float> * doHeapSort(float* tab, int tabSize)
 void heapSort() {
 
 	float tf[4] = { 1.0, 15.0, -1.0, 25.0 };
-	DynArr<float> * tab = doHeapSort(tf, 4);
+	DynArr<float>* tab = doHeapSort(tf, 4);
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -216,7 +413,8 @@ int main()
 
 	//heapSort();
 
-	subFunction3();
+	//subFunction3();
+	subFunction5();
 
 
 	cout << endl;
