@@ -33,15 +33,26 @@ public:
 	}
 
 	// faire un delete
-	virtual ~IntArray()
+	~IntArray()
 	{
 		free(data);
 	}
 
 	//faire un rezize
-	void resize(int size)
+	void resize(int newAllocSize)
 	{
+		if (newAllocSize < allocSize)
+			return;
 
+		int allocSizeByte = newAllocSize * sizeof(int);
+		data = (int*)realloc(data, allocSizeByte);
+
+		for (int i = allocSize; i < newAllocSize; i++)
+		{
+			data[i] = {};
+		}
+
+		allocSize = newAllocSize;
 	}
 
 
@@ -63,16 +74,86 @@ public:
 	{
 		return data[idx];
 	}
+	
 
 	static IntArray iota(int sz)
 	{
-
+		IntArray arr(sz);
+		for (int i = 0; i < sz; i++){
+			arr.data[i] = i;
+		}
+		return arr;
 	}
 
+	static IntArray random(int sz)
+	{
+		IntArray arr(sz);
+		for (int i = 0; i < sz; i++)
+		{
+			arr.data[i] = rand();
+		}
+		return arr;
+	}
+
+	//devors : search, push_first , push_back
+	//
 	//faire une recherche linéaire
 	//renvoie -1 si pas trouvé
 	//renvoie la position si trouvée
 	//int search(int key)
 	//
+
+	int search(int key)
+	{
+		for (int i = 0; i < allocSize; i++)
+		{
+			if (i < allocSize)
+			{
+				if (key == data[i]) return i;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}
+
+	//offset the array and
+	//
+	//void push_back (int val)
+	void push_back(int val)
+	{
+		resize(allocSize + 1);
+		for (int i = allocSize - 1; i > 0; i--)
+		{
+			get(i) = get(i - 1);
+		}
+		get(0) = val;
+	}
+	//void push_front (int val)
+	void push_front(int val)
+	{
+		resize(allocSize + 1);
+		get(allocSize - 1) = val;
+	}
+	//void insert (int pos,int val)
+	void insert(int pos, int val)
+	{
+		if (pos == 0) push_back(val);
+		if (pos == allocSize - 1) push_front(val);
+		else
+		{
+			resize(allocSize + 1);
+			for (int i = allocSize - 1; i > pos; i--)
+			{
+				get(i) = get(i - 1);
+			}
+			get(pos) = val;
+		}
+	}
+
+	//recherche de position d'insertion
+	//renvoie la position ou inserer dans le tableau si il etait trié 
+	//int searchInsertionPos(int key)
 
 };

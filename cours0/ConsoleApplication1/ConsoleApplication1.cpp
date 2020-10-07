@@ -7,12 +7,14 @@
 #include <string>
 #include <cstdlib>
 
+#include "pch.h"
 #include "Vec2.hpp"
 #include "Vec2T.h"
 #include "Vec3T.h"
 #include "arr.h"
 #include "DynArr.h"
 #include "Node.h"
+#include "IntArray.h"
 
 using namespace std;
 
@@ -23,6 +25,24 @@ void subFunc()
 	cout << foo->get(0) << endl;
 
 	delete foo;
+}
+
+void test()
+{
+	IntArray foo(4);
+	foo.get(0) = 12;
+	foo.get(1) = 14;
+	foo.get(2) = 34;
+	foo.get(3) = 36;
+	foo.push_back(6);
+	foo.push_front(9);
+	foo.insert(2, 89);
+	//foo.get(6) = 69;
+	for (int i = 0; i < foo.allocSize; i++)
+	{
+		cout << foo.data[i] << endl;
+	}
+	//cout << foo.search(34) << endl;
 }
 
 void subFunc1()
@@ -151,6 +171,10 @@ bool startsWith(char* meule, char* aiguille)
 }
 char* StrStr(char* meule, char* aiguille)
 {
+	//si meule commence par aiguille
+	//on a trouvé
+	//rest de la meule = avancer meule
+	//sinon on appel recursivement strstr sur le reste de la meule
 	if (aiguille == nullptr && meule == nullptr)return nullptr;
 	if (meule == nullptr) return nullptr;
 	if (*meule == 0) return nullptr;
@@ -253,8 +277,17 @@ int StrCmp(const char* a, const char* b)
 {
 	// si a est vide et b est vide
 	if (*a == 0 && *b == 0) return 0;
-	if (*a == 0) return -1; //a vide
-	if (*b == 0) return 1; //b vide
+	if (*a == 0) return -1; //si a vide
+	if (*b == 0) return 1; //si b vide
+
+	/*
+	//si valeur(a) > valeur(b)
+	if(*a == *b)
+		return StrCmp(a+1, b+1);
+	else
+		return ((*b - *a) > 0) ? -1 : 1;
+	*/
+
 	if (*a < *b)
 		return -1;
 	if (*a > * b)
@@ -287,9 +320,30 @@ void subFunction4()
 
 	Mency(dest, data, sizeof(data) * sizeof(char));
 
-	char pin[] = "pin";
+	for (int i = 0; i < 16; i++)
+	{
+		cout << (int)dest[i] << endl;
+	}
+	free(dest);
+
 	char forest[] = "sapinsapin";
+	char sapin[] = "sapin";
+
+	if (startsWith(forest, sapin))
+		printf("fores begin with sapin");
+	else
+	{
+		printf("error");
+	}
+
+	char pin[] = "pin";
 	char* res = strstr(forest, pin);
+	if (res != nullptr)
+		printf("after pin in the forest");
+	else
+	{
+		printf("error");
+	}
 
 
 }
@@ -414,7 +468,9 @@ int main()
 	//heapSort();
 
 	//subFunction3();
-	subFunction5();
+	//subFunction5();
+
+	test();
 
 
 	cout << endl;

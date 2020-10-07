@@ -1,28 +1,36 @@
 ﻿  ConsoleApplication1.cpp
-d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(147): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(398,14): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
           with
           [
               T=float
           ]
-d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(62): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(60): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(149): note: voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::Reverse(void)' en cours de compilation
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(102): note: voir la référence à l'instanciation de classe modèle 'DynArr<float>' en cours de compilation
-d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(35): warning C4018: '>=' : incompatibilité signed/unsigned
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(33): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(112): note: voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::set(int,const T &)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(64,2): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(62): message : pendant la compilation de la fonction membre classe modèle 'void DynArr<float>::Reverse(void)'
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(400): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::Reverse(void)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(353): message : voir la référence à l'instanciation classe modèle 'DynArr<float>' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(37,13): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(35): message : pendant la compilation de la fonction membre classe modèle 'void DynArr<float>::set(int,const T &)'
           with
           [
               T=float
           ]
-d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(28): warning C4018: '>=' : incompatibilité signed/unsigned
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(27): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(138): note: voir la référence à l'instanciation de la fonction modèle 'T &DynArr<T>::get(int)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(363): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::set(int,const T &)' en cours de compilation
           with
           [
               T=float
           ]
-d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(45): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(44): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\worksjessy\hae_gp2\cours0\consoleapplication1\dynarr.h(36): note: voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::resize(int)' en cours de compilation
-  ConsoleApplication1.vcxproj -> D:\WorksJessy\hae_gp2\cours0\Debug\ConsoleApplication1.exe
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(29,13): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(28): message : pendant la compilation de la fonction membre classe modèle 'T &DynArr<T>::get(int)'
+          with
+          [
+              T=float
+          ]
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(389): message : voir la référence à l'instanciation de la fonction modèle 'T &DynArr<T>::get(int)' en cours de compilation
+          with
+          [
+              T=float
+          ]
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(47,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(46): message : pendant la compilation de la fonction membre classe modèle 'void DynArr<float>::resize(int)'
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(38): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::resize(int)' en cours de compilation
+  ConsoleApplication1.vcxproj -> C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\Debug\ConsoleApplication1.exe

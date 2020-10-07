@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include "pch.h"
 
 template<typename T>
 class DynArr {
@@ -27,6 +28,7 @@ public:
 	T& get(int index) {
 		if (index >= allocSize) throw "assert :: out of bound";
 		if (index < 0) throw "out of bound min";
+
 		return data[index];
 	}
 
