@@ -116,10 +116,26 @@ public:
 		return -1;
 	}
 
+	int searchRec(int key, int startPos = 0)
+	{
+		if (key == data[startPos]) return startPos;
+		if (key >= startPos) return -1;
+		else searchRec(key, startPos + 1);
+
+	}
+
 	//offset the array and
 	//
 	//void push_back (int val)
 	void push_back(int val)
+	{
+		int pos = allocSize;
+		resize(allocSize + 1);
+		data[pos] = val;
+
+	}
+	//void push_front (int val)
+	void push_front(int val)
 	{
 		resize(allocSize + 1);
 		for (int i = allocSize - 1; i > 0; i--)
@@ -128,36 +144,136 @@ public:
 		}
 		get(0) = val;
 	}
-	//void push_front (int val)
-	void push_front(int val)
-	{
-		set(allocSize) = val;
-		/*(allocSize + 1);
-		get(allocSize - 1) = val;*/
-	}
 	//void insert (int pos,int val)
 	void insert(int pos, int val)
 	{
-		if (pos == 0) push_back(val);
-		if (pos == allocSize - 1) push_front(val);
-		else
+		resize(allocSize + 1);
+		for (int i = allocSize - 1; i >= pos; i--)
 		{
-			resize(allocSize + 1);
-			for (int i = allocSize - 1; i > pos; i--)
-			{
-				get(i) = get(i - 1);
-			}
-			get(pos) = val;
+			data[i] = data[i - 1];
 		}
+		data[pos] = val;
 	}
 
 	//recherche de position d'insertion
-	//renvoie la position ou inserer dans le tableau si il etait trié 
+	//on condidereque le tableau est trié
+	//renvoie la position ou inserer la valeur dans le tableau si il etait trié 
 	//int searchInsertionPos(int key)
 
 	int searchInsertinPos(int key)
 	{
+		for (int i = 0; i < allocSize; i++)
+		{
+			if (key < data[i])
+			{
+				return i;
+			}
+		}
+	}
 
+
+	int searchInsertinPosRec(int key, int pos = 0)
+	{
+		if (pos >= allocSize) return allocSize;
+		else if (data[pos] >= key) return pos;
+		else return searchInsertinPosRec(key, pos + 1);
+	}
+
+	/*int searchInsertinPosRec(int key, int pos = 0)
+	{
+		if (pos >= allocSize) return allocSize;
+		if (key == data[pos]) return pos;
+
+		if (pos >= allocSize - 1)
+		{
+			if (key < data[pos])
+			{
+				return pos ;
+			}
+			else
+			{
+				return allocSize;
+			}
+
+		}
+		//if (pos < allocSize - 1)
+		else
+		{
+			if (data[pos] < key)
+			{
+				if (data[pos + 1] < key)
+					return searchInsertinPosRec(key, pos + 1);
+				if (data[pos + 1] >= key)
+					return pos + 1;
+			}
+			else {
+				if (data[pos] > key)
+					return key;
+			}
+			/*if (data[pos] < key && data[pos + 1] < key)
+				return searchInsertinPosRec(key, pos + 1);
+
+			if (data[pos] < key && data[pos + 1] > key)
+				return pos + 1;
+			
+			if (data[pos] > key)
+				return pos;
+			
+		}
+
+	}*/
+
+	//retourne faux si deux element du tableau ne sont pas triés
+	//sinon retourn true
+	bool isSorted()
+	{
+		for (int i = 0; i < allocSize; i++)
+		{
+			if (data[i] > data[i + 1]) return false;
+		}
+		return true;
+	}
+
+	bool isSortedRec(int pos = 0)
+	{
+		if (pos >= allocSize - 1)
+			return true;
+
+		if (data[pos] < data[pos + 1]) return isSortedRec(pos + 1);
+			
+		return false;
+		
+	}
+
+
+
+	static IntArray sort(int* data, int dataSize);
+
+	static IntArray sortInPlace(int* data, int dataSize);
+
+	bool binarySearch(int key, int start, int end)
+	{
+		//retourne vrai si on a retrouvé la clée 
+		//sinon faux
+		int mid = (end + start + 1) / 2;
+
+		if (end < start) return false;
+
+		if (data[start] == key) return true;
+		if (data[end] == key) return true;
+		if (data[mid] == key) return true;
+
+		if (data[mid] > key)
+			return binarySearch(key, start, mid - 1);
+
+		return binarySearch(key, mid + 1,end);
+
+		/*int milieu = start / end;
+		if (milieu == key) return true;
+		else if (milieu < key) binarySearch(key, start, milieu - 1);
+		else if (milieu > key) binarySearch(key, milieu + 1, end);
+		
+		if (end < start) return false;*/
 	}
 
 };

@@ -6,6 +6,8 @@
 #include <functional>
 #include <string>
 #include <cstdlib>
+#include <cstdio>
+
 
 #include "pch.h"
 #include "Vec2.hpp"
@@ -15,6 +17,7 @@
 #include "DynArr.h"
 #include "Node.h"
 #include "IntArray.h"
+#include "Lib.hpp"
 
 using namespace std;
 
@@ -27,23 +30,61 @@ void subFunc()
 	delete foo;
 }
 
+void subFunction6()
+{
+
+}
+
 void test()
 {
-	IntArray foo(4);
-	foo.get(0) = 12;
+
+	IntArray foo(5);
+	/*foo.get(0) = 12;
 	foo.get(1) = 14;
 	foo.get(2) = 34;
 	foo.get(3) = 36;
-	foo.push_back(6);
 	foo.push_front(9);
 	foo.insert(2, 89);
+	foo.push_back(6);*/
+
+	foo.get(0) = 1;
+	foo.get(1) = 2;
+
+	foo.get(3) = 5;
+	foo.get(4) = 6;
+
+	foo.searchInsertinPos(3);
 	//foo.get(6) = 69;
 	for (int i = 0; i < foo.allocSize; i++)
 	{
 		cout << foo.data[i] << endl;
 	}
 	cout << "serach :  " << foo.search(34) << endl;
-	cout << "Size :  " << foo.allocSize << endl;
+	cout << "searchRec :  " << foo.searchRec(6) << endl;
+	cout << "searchInsertinPos :  " << foo.searchInsertinPos(3) << endl;
+	cout << "searchInsertinPosRec :  " << foo.searchInsertinPos(7) << endl;
+	cout <<"isSorted " <<foo.isSortedRec() << endl;
+
+	{
+		int data[] = { 1,5,8,6 };
+		int size = sizeof(data) / sizeof(int);
+		IntArray arr = IntArray::sort(data, size);
+
+		if (!arr.isSorted )
+		{
+			throw"not sorted?";
+		}
+		auto k = 66;
+	}
+
+	{
+
+	}
+}
+
+void timetes()
+{
+	double val0 = Lib::getTimeStamp();
 }
 
 void subFunc1()
