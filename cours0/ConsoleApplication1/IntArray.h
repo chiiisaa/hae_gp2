@@ -56,6 +56,8 @@ public:
 	}
 
 
+
+
 	//faire un get
 	int& get(int index) {
 		if (index >= allocSize) throw "assert :: out of bound";
@@ -65,9 +67,11 @@ public:
 
 	//faire un set
 	int& set(int index) {
-		resize(index + 1);
+		if (index >= allocSize)
+			resize(index + 1);
 		return data[index];
 	}
+
 
 	//faire un operator[]
 	int& operator[] (int idx)
@@ -107,15 +111,9 @@ public:
 	{
 		for (int i = 0; i < allocSize; i++)
 		{
-			if (i < allocSize)
-			{
-				if (key == data[i]) return i;
-			}
-			else
-			{
-				return -1;
-			}
+			if (key == data[i]) return i;
 		}
+		return -1;
 	}
 
 	//offset the array and
@@ -133,8 +131,9 @@ public:
 	//void push_front (int val)
 	void push_front(int val)
 	{
-		resize(allocSize + 1);
-		get(allocSize - 1) = val;
+		set(allocSize) = val;
+		/*(allocSize + 1);
+		get(allocSize - 1) = val;*/
 	}
 	//void insert (int pos,int val)
 	void insert(int pos, int val)
@@ -155,5 +154,10 @@ public:
 	//recherche de position d'insertion
 	//renvoie la position ou inserer dans le tableau si il etait trié 
 	//int searchInsertionPos(int key)
+
+	int searchInsertinPos(int key)
+	{
+
+	}
 
 };

@@ -42,7 +42,8 @@ void test()
 	{
 		cout << foo.data[i] << endl;
 	}
-	//cout << foo.search(34) << endl;
+	cout << "serach :  " << foo.search(34) << endl;
+	cout << "Size :  " << foo.allocSize << endl;
 }
 
 void subFunc1()

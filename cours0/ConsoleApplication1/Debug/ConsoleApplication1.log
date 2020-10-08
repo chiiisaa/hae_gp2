@@ -1,20 +1,20 @@
 ﻿  ConsoleApplication1.cpp
-C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(398,14): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(399,14): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
           with
           [
               T=float
           ]
 C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(64,2): warning C4018: '<' : incompatibilité signed/unsigned
 C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(62): message : pendant la compilation de la fonction membre classe modèle 'void DynArr<float>::Reverse(void)'
-C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(400): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::Reverse(void)' en cours de compilation
-C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(353): message : voir la référence à l'instanciation classe modèle 'DynArr<float>' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(401): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::Reverse(void)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(354): message : voir la référence à l'instanciation classe modèle 'DynArr<float>' en cours de compilation
 C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(37,13): warning C4018: '>=' : incompatibilité signed/unsigned
 C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(35): message : pendant la compilation de la fonction membre classe modèle 'void DynArr<float>::set(int,const T &)'
           with
           [
               T=float
           ]
-C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(363): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::set(int,const T &)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(364): message : voir la référence à l'instanciation de la fonction modèle 'void DynArr<float>::set(int,const T &)' en cours de compilation
           with
           [
               T=float
@@ -25,7 +25,7 @@ C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\DynArr.h(2
           [
               T=float
           ]
-C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(389): message : voir la référence à l'instanciation de la fonction modèle 'T &DynArr<T>::get(int)' en cours de compilation
+C:\Users\Jessy\Desktop\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(390): message : voir la référence à l'instanciation de la fonction modèle 'T &DynArr<T>::get(int)' en cours de compilation
           with
           [
               T=float
