@@ -35,6 +35,10 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
             else if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::BackSpace)
+                {
+                    line.clear();
+                }
                 //si backspace 
                 //reset tout les points
                 //myPoints.clear()
@@ -60,10 +64,16 @@ int main()
         text.setPosition(0, 0);
         text.setFillColor(sf::Color::White);
 
+        //A
+        /* Mode immediate
         line.clear();
         line.setPrimitiveType(sf::PrimitiveType::Lines);
         line.append(sf::Vertex(sf::Vector2f(50, 50), sf::Color(0x5DFFA3ff)));
-        line.append(sf::Vertex(sf::Vector2f(500, 500), sf::Color(0xF5363Cff)));
+        line.append(sf::Vertex(sf::Vector2f(500, 500), sf::Color(0xF5363Cff)));*/
+        //b moode retained
+        VertexArray line(PrimitiveType::Lines, 2);
+        line[0] = Vertex(Vector2f(50, 50), Color(0x5DFFA3ff));
+        line[1] = Vertex(Vector2f(500, 500), Color(0xF5363Cff));
 
         window.clear();
 
