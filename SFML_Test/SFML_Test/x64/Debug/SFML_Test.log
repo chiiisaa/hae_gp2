@@ -1,0 +1,5 @@
+﻿  SFML_Test.cpp
+D:\c++\SFML_Test\SFML_Test\SFML_Test.cpp(66,28): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\c++\SFML_Test\SFML_Test\SFML_Test.cpp(67,55): warning C4244: '+=' : conversion de 'float' en 'int', perte possible de données
+D:\c++\SFML_Test\SFML_Test\SFML_Test.cpp(69,33): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  SFML_Test.vcxproj -> D:\c++\SFML_Test\x64\Debug\SFML_Test.exe
