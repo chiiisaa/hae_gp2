@@ -38,15 +38,30 @@ int main()
                 if (event.key.code == sf::Keyboard::BackSpace)
                 {
                     line.clear();
+                    /*for (int i = 0; i < myPoints.size(); i++)
+                    {
+                        myPoints[i] = sf::Vector2f(0, 0);
+                    }*/
                 }
                 //si backspace 
                 //reset tout les points
                 //myPoints.clear()
+                myPoints.clear();
             }
 
-            if (event.type == sf::Event::MouseButtonPressed) {
-
+            if (event.type == sf::Event::MouseButtonPressed) {              
                 //ajouter un point
+                myPoints.push_back(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
+                line.clear();
+                line.setPrimitiveType(sf::PrimitiveType::Lines);
+                for (int i = 1; i < myPoints.size(); i++)
+                {
+                    line.append(sf::Vertex(myPoints[i-1], sf::Color(0x5DFFA3ff)));
+                    line.append(sf::Vertex(myPoints[i], sf::Color(0x5DFFA3ff)));
+                    std::cout <<"x :" << myPoints[i].x << std::endl;
+                    std::cout <<"y : " << myPoints[i].y << std::endl;
+                }
+
                  //myPoints.push_back
             }
 
@@ -71,9 +86,9 @@ int main()
         line.append(sf::Vertex(sf::Vector2f(50, 50), sf::Color(0x5DFFA3ff)));
         line.append(sf::Vertex(sf::Vector2f(500, 500), sf::Color(0xF5363Cff)));*/
         //b moode retained
-        VertexArray line(PrimitiveType::Lines, 2);
+        /*VertexArray line(PrimitiveType::Lines, 2);
         line[0] = Vertex(Vector2f(50, 50), Color(0x5DFFA3ff));
-        line[1] = Vertex(Vector2f(500, 500), Color(0xF5363Cff));
+        line[1] = Vertex(Vector2f(500, 500), Color(0xF5363Cff));*/
 
         window.clear();
 

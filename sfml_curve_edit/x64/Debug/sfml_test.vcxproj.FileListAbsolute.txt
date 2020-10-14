@@ -2,3 +2,5 @@ D:\Student\Bureau\test-master\sfml_curve_edit\x64\Debug\sfml_test.exe
 D:\Student\Bureau\test-master\sfml_curve_edit\x64\Debug\sfml_test.pdb
 D:\c++\sfml_curve_edit\x64\Debug\sfml_test.exe
 D:\c++\sfml_curve_edit\x64\Debug\sfml_test.pdb
+D:\Mes cours\C\hae_gp2\sfml_curve_edit\x64\Debug\sfml_test.exe
+D:\Mes cours\C\hae_gp2\sfml_curve_edit\x64\Debug\sfml_test.pdb
