@@ -1,0 +1,14 @@
+﻿  ConsoleApplication1.cpp
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(72): error C2276: '!' : opération non conforme sur l'expression d'une fonction membre liée
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\consoleapplication1.cpp(434): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  IntArray.cpp
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\intarray.cpp(16): error C2653: 'IntArray' : n'est pas un nom de classe ni d'espace de noms
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\intarray.cpp(16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\intarray.cpp(16): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'sortInPlace'
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\intarray.cpp(17): error C2143: erreur de syntaxe : absence de ';' avant '{'
+d:\worksjessy\hae_gp2\cours0\consoleapplication1\intarray.cpp(17): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+  Génération de code en cours...

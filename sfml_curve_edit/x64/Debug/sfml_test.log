@@ -1,12 +1,7 @@
 ﻿  sfml_test.cpp
-D:\Mes cours\C\hae_gp2\sfml_curve_edit\sfml_test.cpp(54,87): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+d:\worksjessy\hae_gp2\sfml_curve_edit\sfml_test.cpp(55): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\sfml_curve_edit\sfml_test.cpp(54,66): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-  sfml_test.vcxproj -> D:\Mes cours\C\hae_gp2\sfml_curve_edit\x64\Debug\sfml_test.exe
+d:\worksjessy\hae_gp2\sfml_curve_edit\sfml_test.cpp(59): error C2440: 'initialisation' : impossible de convertir de 'sf::Vector2<float>' en 'sf::Vertex &'

@@ -1,1 +1,11 @@
-﻿
+﻿  SFML_Test.cpp
+d:\worksjessy\hae_gp2\sfml_test - copie\sfml_test\interp.hpp(22): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+d:\worksjessy\hae_gp2\sfml_test - copie\sfml_test\interp.hpp(25): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+d:\worksjessy\hae_gp2\sfml_test - copie\sfml_test\interp.hpp(27): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+d:\worksjessy\hae_gp2\sfml_test - copie\sfml_test\sfml_test.cpp(62): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\worksjessy\hae_gp2\sfml_test - copie\sfml_test\sfml_test.cpp(101): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  SFML_Test.vcxproj -> D:\WorksJessy\hae_gp2\SFML_Test - Copie\x64\Debug\SFML_Test.exe

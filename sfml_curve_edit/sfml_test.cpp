@@ -2,6 +2,7 @@
 //
 
 #include <iostream> // inclut un entete/header appelé iostream
+#include <vector> // inclut un entete/header appelé iostream
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
@@ -54,13 +55,18 @@ int main()
                 myPoints.push_back(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
                 line.clear();
                 line.setPrimitiveType(sf::PrimitiveType::Lines);
-                for (int i = 1; i < myPoints.size(); i++)
+
+				for (Vertex& vtx : myPoints)
+				{
+					line.append(vtx);
+				}
+                /*for (int i = 1; i < myPoints.size(); i++)
                 {
                     line.append(sf::Vertex(myPoints[i-1], sf::Color(0x5DFFA3ff)));
                     line.append(sf::Vertex(myPoints[i], sf::Color(0x5DFFA3ff)));
                     std::cout <<"x :" << myPoints[i].x << std::endl;
                     std::cout <<"y : " << myPoints[i].y << std::endl;
-                }
+                }*/
 
                  //myPoints.push_back
             }
