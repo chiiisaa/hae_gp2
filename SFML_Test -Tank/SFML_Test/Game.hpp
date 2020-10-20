@@ -21,6 +21,7 @@ public:
 	Vector2f pos = player.getPosition();
 	Vector2f normal;
 	float speed = 10;
+	RectangleShape canon = RectangleShape(Vector2f(60, 10));
 
 	Game(sf::RenderWindow* win) {
 		this->win = win;
@@ -29,6 +30,8 @@ public:
 		player.setOutlineColor(Color(0x50F2E4));
 		player.setPosition(50, 50);
 		player.setOrigin(25, 25);
+
+		canon.setFillColor(Color(0x50F2E4));
 	}
 
 	void processInput(sf::Event ev) {
@@ -39,12 +42,14 @@ public:
 		}
 		if (ev.type == Event::MouseMoved)
 		{
+			//Rotation du joueur 
 			MouseX = ev.mouseMove.x;
 			MouseY = ev.mouseMove.y;
-			auto angle = atan2(MouseY - pos.y , MouseX - pos.x) * (180/ 3.14);
+			double angle = atan2(MouseY - pos.y , MouseX - pos.x) * (180/ 3.14);
 			//if (angle < 0) angle = 360 - (-angle);
 			//cout << angle << endl;
 			player.setRotation(angle);
+			canon.setRotation(angle);
 		}
 		//if (Mouse::isButtonPressed(Mouse::Left))
 		if (ev.type == Event::MouseButtonPressed)
@@ -53,9 +58,11 @@ public:
 			tir.setFillColor(Color(0x0563FA));
 			tir.setPosition(pos);
 
-			auto dir = (Vector2f(MouseX, MouseY) - pos);
-			normal = dir / sqrt(pow(dir.x, 2) + pow(dir.y, 2));
-			cout << normal.x << endl;
+			// calcul : Longueur Vecteur ||V|| =racine carré de ((Vx * Vx) + (Vy * Vy))
+			// normalisé Vecteur : U = V / ||V||
+			auto temp = (Vector2f(MouseX, MouseY) - pos);
+			normal = temp / sqrt(pow(temp.x, 2) + pow(temp.y, 2));
+			cout << normal.x << normal.y << endl;
 		}
 	}
 
@@ -64,25 +71,51 @@ public:
 		pos = player.getPosition();
 		if (Keyboard::isKeyPressed(Keyboard::Key::Z))
 		{
-			ppos.y--;
+			pos.y--;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::Q))
 		{
-			ppos.x--;
+			pos.x--;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::S))
 		{
-			ppos.y++;
+			pos.y++;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::D))
 		{
-			ppos.x++;
+			pos.x++;
 		}
-		player.setPosition(ppos);
+		limite();
+
+
+		player.setPosition(pos);
+		canon.setPosition(Vector2f(pos.x,pos.y));
+		float length = 10;
+
 		line.clear();
 		line.setPrimitiveType(sf::PrimitiveType::Lines);
-		line.append(sf::Vertex(ppos, sf::Color(0x5DFFA3ff)));
-		line.append(sf::Vertex(Vector2f(MouseX,MouseY), sf::Color(0x5DFFA3ff)));
+		//line.append(sf::Vertex(pos, sf::Color(0x5DFFA3ff)));
+		//line.append(sf::Vertex(Vector2f(MouseX,MouseY), sf::Color(0x5DFFA3ff)));
+	}
+
+	void limite()
+	{
+		if (pos.y > 680)
+		{
+			pos.y = 680;
+		}
+		if (pos.y < 29)
+		{
+			pos.y = 29;
+		}
+		if (pos.x < 30)
+		{
+			pos.x = 30;
+		}
+		if (pos.x > 1241)
+		{
+			pos.x = 1241;
+		}
 	}
 
 	void update() {
@@ -93,8 +126,8 @@ public:
 
 	void draw(sf::RenderWindow& win) {
 		win.draw(player);
-
 		win.draw(line);
 		win.draw(tir);
+		win.draw(canon);
 	}
 };

@@ -1,8 +1,9 @@
 ﻿  SFML_Test.cpp
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Interp.hpp(25,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Interp.hpp(27,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Game.hpp(42,25): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Game.hpp(43,25): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\SFML_Test\Game.hpp(47,23): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\SFML_Test - Copie - Copie\x64\Debug\SFML_Test.exe
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Interp.hpp(25,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Interp.hpp(27,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Game.hpp(46,25): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Game.hpp(47,25): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Game.hpp(51,23): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank\SFML_Test\Game.hpp(52,22): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\SFML_Test -Tank\x64\Debug\SFML_Test.exe
