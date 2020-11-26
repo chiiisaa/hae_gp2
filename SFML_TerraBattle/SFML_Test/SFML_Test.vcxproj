@@ -152,6 +152,7 @@
     <ClCompile Include="SFML_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blanc.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Lib.hpp" />

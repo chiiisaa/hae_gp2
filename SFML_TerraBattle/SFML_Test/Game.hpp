@@ -6,6 +6,7 @@
 #include "Enemy.hpp"
 #include "player.hpp"
 #include "particule.hpp"
+#include "Blanc.hpp"
 
 #include <iostream>
 
@@ -31,6 +32,8 @@ public :
 	vector<player> AllPlayer;
 	Vector2f LastPlayerPos; 
 	vector<particule> partPlayer; //particule player
+
+	Blanc b;
 
 	Enemy en;
 	vector<Enemy> allEnemy;

@@ -198,9 +198,11 @@ bool Game::degatEnemy()
 					enemyIndex = getEnemy(myCase[y][x]);
 					Playeri = getPlayer(myCase[y - 1][x]);
 					playerIndex = getPlayer(myCase[y + 1][x]);
+					b.setShape(false);
+					b.setPos(myCase[y][x]);
 					inCase[y][x] = 0;
 					//state = playerAttack;
-					setState(playerAttack);
+					setState(playerStartAttack);
 					return true;
 				}
 				if (inCase[y][x - 1] == 1 && inCase[y][x + 1] == 1)
@@ -209,10 +211,12 @@ bool Game::degatEnemy()
 					enemyIndex = getEnemy(myCase[y][x]);
 					Playeri = getPlayer(myCase[y][x - 1]);
 					playerIndex = getPlayer(myCase[y][x + 1]);
+					b.setShape(true);
+					b.setPos(myCase[y][x]);
 					AllPlayer[Playeri].Attack();
 					inCase[y][x] = 0;
 					//state = playerAttack;
-					setState(playerAttack);
+					setState(playerStartAttack);
 					return true;
 				}
 			}
@@ -272,7 +276,7 @@ void Game::update(float dt) {
 	{
 	case playerStartAttack:
 		//AllPlayer[playerIndex].bStart();
-		if (!AllPlayer[playerIndex].bTransition()) setState(playerAttack);
+		if (!b.bTransition()) setState(playerAttack);
 		break;
 	case playerAttack:
 		AllPlayer[playerIndex].Attack();
@@ -334,6 +338,8 @@ void Game::draw(RenderWindow& win) {
 	for (player& p : AllPlayer) {
 		p.draw(win);
 	}
+
+	b.draw(win);
 }
 
 void Game::setState(State st) {

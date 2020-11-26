@@ -11,9 +11,7 @@ using namespace sf;
 
 class player {
 public:
-
 	RectangleShape shape;
-	RectangleShape b ;
 
 	Texture text;
 	Texture textureSansFond;
@@ -33,37 +31,8 @@ public:
 		playerTexture.setOrigin(25, 25);
 		//playerTexture.setPosition(247, 324);
 		playerTexture.setTexture(&text);
-
-		b = RectangleShape(Vector2f(192, 64));
-		b.setFillColor(Color(0x421737));
-		b.setFillColor((sf::Color(255, 255, 255, 0)));
-		b.setOrigin(96, 32);
-		b.setPosition(Vector2f(325, 407));
-		bStart();
 	}
 
-	void bStart()
-	{
-		b.setPosition(Vector2f(325, 407));
-		b.setScale(Vector2f(5, 20));
-	}
-
-	bool bTransition()
-	{
-		b.setFillColor((sf::Color(255, 255, 255, 255)));
-		Vector2f bScale = b.getScale();
-		cout << bScale.y << endl;
-		if(bScale.x <= 1) b.setScale(bScale.x, bScale.y - 0.1);
-		else if (bScale.y <= 1) b.setScale(bScale.x -0.01, bScale.y);
-		else b.setScale(bScale.x - 0.01 , bScale.y - 0.1);
-		if (bScale.y > 1 || bScale.x > 1) return true;
-		else
-		{
-			//bStart();
-			return false;
-		}
-
-	}
 
 	void setPosition(Vector2f pos)
 	{
@@ -203,7 +172,6 @@ public:
 
 	void draw(sf::RenderWindow& win)
 	{
-		win.draw(b);
 		win.draw(shape);
 		//win.draw(playerTexture);
 	}
