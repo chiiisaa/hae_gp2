@@ -17,10 +17,10 @@ public:
 
 	float MouseX;
 	float MouseY;
-	CircleShape tir;
+	float speed = 10;
 	Vector2f pos = player.getPosition();
 	Vector2f normal;
-	float speed = 10;
+	CircleShape tir;
 	RectangleShape canon = RectangleShape(Vector2f(60, 10));
 
 	Game(sf::RenderWindow* win) {
@@ -63,6 +63,7 @@ public:
 			auto temp = (Vector2f(MouseX, MouseY) - pos);
 			normal = temp / sqrt(pow(temp.x, 2) + pow(temp.y, 2));
 			cout << normal.x << normal.y << endl;
+			cout << temp.x << " Y :"<< temp.y << endl;
 		}
 	}
 
@@ -87,13 +88,11 @@ public:
 		}
 		limite();
 
-
 		player.setPosition(pos);
-		canon.setPosition(Vector2f(pos.x,pos.y));
-		float length = 10;
+		canon.setPosition(pos);
 
-		line.clear();
-		line.setPrimitiveType(sf::PrimitiveType::Lines);
+		//line.clear();
+		//line.setPrimitiveType(sf::PrimitiveType::Lines);
 		//line.append(sf::Vertex(pos, sf::Color(0x5DFFA3ff)));
 		//line.append(sf::Vertex(Vector2f(MouseX,MouseY), sf::Color(0x5DFFA3ff)));
 	}
@@ -121,13 +120,17 @@ public:
 	void update() {
 		pollInput();
 		tir.move(normal * speed);
-
 	}
 
 	void draw(sf::RenderWindow& win) {
 		win.draw(player);
-		win.draw(line);
+		//win.draw(line);
 		win.draw(tir);
 		win.draw(canon);
+	}
+
+	void rebond(bool rebondOk)
+	{
+
 	}
 };

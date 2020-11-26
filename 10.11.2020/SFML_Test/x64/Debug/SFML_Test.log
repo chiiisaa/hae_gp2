@@ -1,0 +1,27 @@
+﻿  SFML_Test.cpp
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Game.hpp(36,1): warning C4244: '-=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Game.hpp(40,1): warning C4244: '-=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Game.hpp(44,1): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Game.hpp(48,1): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Interp.hpp(25,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\Interp.hpp(27,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\10.11.2020\SFML_Test\SFML_Test.cpp(81,24): warning C4305: '*=' : troncation de 'double' à 'float'
+  SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\10.11.2020\x64\Debug\SFML_Test.exe

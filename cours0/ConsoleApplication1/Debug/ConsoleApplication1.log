@@ -1,1 +1,29 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Cpp.Platform.targets(67,5): error MSB8020: Les outils de génération pour v142 (ensemble d'outils de plateforme = 'v142') sont introuvables. Pour générer à l'aide des outils de génération v142, installez les outils de génération v142. Vous avez également la possibilité de mettre à niveau les outils Visual Studio actuels en sélectionnant le menu Projet ou en cliquant avec le bouton droit sur la solution, puis en sélectionnant "Recibler la solution".
+﻿  pch.cpp
+  ConsoleApplication1.cpp
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(13,1): error C3867: 'std::chrono::duration<__int64,std::nano>::count' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(13,1): error C2440: 'return' : impossible de convertir de '_Rep (__thiscall std::chrono::duration<_Rep,std::nano>::* )(void) noexcept const' en 'double'
+          with
+          [
+              _Rep=__int64
+          ]
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(13,13): message : Aucun contexte dans lequel cette conversion est possible
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(73,21): error C2276: '!' : opération non conforme sur l'expression d'une fonction membre liée
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(87,34): error C2248: 'Lib::getTimeStamp' : impossible d'accéder à private membre déclaré(e) dans la classe 'Lib'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(10): message : voir la déclaration de 'Lib::getTimeStamp'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(8): message : voir la déclaration de 'Lib'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(87,21): error C2352: 'Lib::getTimeStamp' : appel non conforme d'une fonction membre non static
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\Lib.hpp(10): message : voir la déclaration de 'Lib::getTimeStamp'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\ConsoleApplication1.cpp(440,14): warning C4244: 'argument' : conversion de 'int' en 'const T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  IntArray.cpp
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\IntArray.cpp(16,31): error C2653: 'IntArray' : n'est pas un nom de classe ni d'espace de noms
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\IntArray.cpp(16,31): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\IntArray.cpp(16,20): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'sortInPlace'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\IntArray.cpp(17,1): error C2143: erreur de syntaxe : absence de ';' avant '{'
+D:\Mes cours\C\hae_gp2\cours0\ConsoleApplication1\IntArray.cpp(17,1): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+  Vec2T.cpp
+  Vec3T.cpp
+  Génération de code en cours...

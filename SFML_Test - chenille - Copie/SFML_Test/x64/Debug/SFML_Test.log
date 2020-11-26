@@ -1,0 +1,8 @@
+﻿  SFML_Test.cpp
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\totue.hpp(33,45): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\Interp.hpp(25,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\Interp.hpp(27,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\SFML_Test\SFML_Test.cpp(81,24): warning C4305: '*=' : troncation de 'double' à 'float'
+  SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\SFML_Test - chenille - Copie\x64\Debug\SFML_Test.exe

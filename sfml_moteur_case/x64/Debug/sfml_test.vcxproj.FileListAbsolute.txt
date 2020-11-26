@@ -1,0 +1,2 @@
+C:\Users\Jessy\Desktop\sfml_moteur_case\x64\Debug\sfml_test.exe
+C:\Users\Jessy\Desktop\sfml_moteur_case\x64\Debug\sfml_test.pdb

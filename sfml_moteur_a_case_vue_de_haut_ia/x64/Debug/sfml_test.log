@@ -1,0 +1,66 @@
+﻿  Char.cpp
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(52,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(53,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(32,30): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(40,16): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\ParticleMan.hpp(17,13): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(8,11): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(15,11): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(18,11): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(89,19): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(90,19): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(94,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(104,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(114,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(124,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(268,15): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.cpp(269,15): warning C4305: '=' : troncation de 'double' à 'float'
+  Game.cpp
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(52,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(53,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(32,30): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(40,16): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\ParticleMan.hpp(17,13): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(6,1): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp : message : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(14,67): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(14,49): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(48,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(48,24): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(81,17): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(82,17): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(152,87): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(152,40): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(276,13): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Game.cpp(279,14): warning C4305: '=' : troncation de 'double' à 'float'
+  sfml_test.cpp
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(32,30): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Particle.hpp(40,16): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\ParticleMan.hpp(17,13): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(52,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Char.hpp(53,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Interp.hpp(26,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\Interp.hpp(29,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\sfml_test.cpp(81,24): warning C4305: '*=' : troncation de 'double' à 'float'
+  Génération de code en cours...
+LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'D:\Mes cours\C\hae_gp2\sfml_moteur_a_case_vue_de_haut_ia\x64\Debug\sfml_test.exe'

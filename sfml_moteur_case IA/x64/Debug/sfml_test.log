@@ -1,0 +1,15 @@
+﻿  Char.cpp
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Dice.hpp(12,23): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Particle.hpp(32,30): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Particle.hpp(40,16): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\ParticleMan.hpp(17,13): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(7,11): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(14,11): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(17,11): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(66,19): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(67,19): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(71,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(81,13): warning C4305: '=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(108,16): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\Char.cpp(181,17): warning C4305: '=' : troncation de 'double' à 'float'
+  sfml_test.vcxproj -> D:\Mes cours\C\hae_gp2\sfml_moteur_case IA\x64\Debug\sfml_test.exe

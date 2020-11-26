@@ -1,0 +1,57 @@
+﻿  SFML_Test.cpp
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Dice.hpp(12,17): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(28,30): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(36,16): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(43,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(44,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(48,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Particle.hpp(49,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\ParticleFume.h(31,1): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\ParticleFume.h(36,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\ParticleFume.h(37,1): warning C4305: '*=' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(40,46): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(95,1): warning C4244: '-=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(100,1): warning C4244: '-=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(105,1): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(110,1): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(116,45): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(136,1): warning C4244: '/=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(137,1): warning C4244: '/=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Game.hpp(179,13): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Interp.hpp(22,11): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Interp.hpp(25,1): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\Interp.hpp(27,14): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\SFML_Test\SFML_Test.cpp(78,24): warning C4305: '*=' : troncation de 'double' à 'float'
+  SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\SFML_Test -Tank - Copie\x64\Debug\SFML_Test.exe
