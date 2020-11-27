@@ -3,11 +3,13 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Window.hpp"
+#include "Game.hpp"
 
 #include <iostream>
 
 using namespace std;
 using namespace sf;
+
 
 class Enemy {
 public:
@@ -21,7 +23,7 @@ public:
 	bool destroy = false;
 
 	int enemyTour;
-
+	
 	Enemy() {
 		enemy = RectangleShape(Vector2f(64, 64));
 		enemy.setOrigin(25, 25);
@@ -76,6 +78,40 @@ public:
 	void Move(Vector2f target)
 	{
 		enemy.move(target);
+	}
+
+	void move(Vector2f myPos, Vector2f myPosInCase,Vector2f mycase[9][6], Vector2f target)
+	{
+		if (myPos == target) // teste 
+		{
+			cout << "meme endroit" << endl;
+		}
+		float distance1 = 10000;
+		Vector2f position;
+		for (int x = -1; x <= 1; x++)
+		{
+			//myPosInCase[x][(int)myPos.y].x;
+			// calcule de distance : \sqrt{ (x2 - x1)^ { 2 } + (y2 - y1)^ { 2 } }
+			float distance = sqrt(pow(mycase[(int)myPosInCase.x - x][(int)myPosInCase.y].x - target.x, 2) + pow(mycase[(int)myPosInCase.x - x][(int)myPosInCase.y].y - target.y, 2));
+			cout << "disctance" << distance << endl;
+			if (distance < distance1)
+			{
+				distance1 = distance;
+				position = mycase[(int)myPosInCase.x - x][(int)myPosInCase.y];
+			}
+			
+		}
+		for (int y = -1; y <= 1; y++)
+		{
+			float distance = sqrt(pow(mycase[(int)myPosInCase.x][(int)myPosInCase.y - y].x - target.x, 2) + pow(mycase[(int)myPosInCase.x][(int)myPosInCase.y - y].y - target.y, 2));
+			if (distance < distance1)
+			{
+				distance1 = distance;
+				position = mycase[(int)myPosInCase.x][(int)myPosInCase.y - y];
+			}
+		}
+		cout << "position" << position.x <<" " << position.y << endl;
+		setPosition(position);
 	}
 
 	void draw(sf::RenderWindow& win)

@@ -75,6 +75,17 @@ void Game::processInput(Event ev)
 			cout << endl;
 		}
 	}
+	if (ev.type == sf::Event::KeyReleased) {
+		if (ev.key.code == Keyboard::Key::T) /////// TESTE Enemy move
+		{
+			//allEnemy[enemyIndex].setPosition(myCase[6][1]);
+			//allEnemy[enemyIndex+1].Move(Vector2f(5, 5));
+			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
+			cout << "E pos x : " << Enemypos.x << endl;
+			allEnemy[enemyIndex].move(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, myCase[7][5]);
+			cout << allEnemy[enemyIndex ].getPosition().x << " " << allEnemy[enemyIndex].getPosition().y << endl;
+		}
+	}
 
 	if (ev.type == Event::MouseButtonPressed && state == playerTurn)
 	{

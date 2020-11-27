@@ -1,7 +1,7 @@
 ﻿  Game.cpp
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(20,18): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(62,45): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(67,1): warning C4305: 'argument' : troncation de 'double' à 'T'
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(22,18): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(64,45): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(69,1): warning C4305: 'argument' : troncation de 'double' à 'T'
           with
           [
               T=float
@@ -28,62 +28,39 @@ D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(6,45): warning C4244:
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(97,72): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(109,72): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(97,56): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(109,56): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(101,57): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(113,57): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(101,41): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(113,41): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(154,24): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(166,24): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(154,21): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(166,21): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(176,17): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(317,26): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(324,22): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  SFML_Test.cpp
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(20,18): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(62,45): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Enemy.hpp(67,1): warning C4305: 'argument' : troncation de 'double' à 'T'
-          with
-          [
-              T=float
-          ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\player.hpp(51,18): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\player.hpp(58,1): warning C4305: '=' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\player.hpp(65,1): warning C4305: '=' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\player.hpp(121,52): warning C4244: 'argument' : conversion de 'double' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\particule.hpp(33,1): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\particule.hpp(38,1): warning C4305: '*=' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\particule.hpp(39,1): warning C4305: '*=' : troncation de 'double' à 'float'
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Blanc.hpp(48,77): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Blanc.hpp(48,61): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\SFML_Test.cpp(37,12): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  Génération de code en cours...
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(239): warning C4715: 'Game::getEnemy' : les chemins de contrôle ne retournent pas tous une valeur
-D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(251): warning C4715: 'Game::getPlayer' : les chemins de contrôle ne retournent pas tous une valeur
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(188,17): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(329,26): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(336,22): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(263): warning C4715: 'Game::getPlayer' : les chemins de contrôle ne retournent pas tous une valeur
+D:\Mes cours\C\hae_gp2\SFML_TerraBattle\SFML_Test\Game.cpp(251): warning C4715: 'Game::getEnemy' : les chemins de contrôle ne retournent pas tous une valeur
   SFML_Test.vcxproj -> D:\Mes cours\C\hae_gp2\SFML_TerraBattle\x64\Debug\SFML_Test.exe
