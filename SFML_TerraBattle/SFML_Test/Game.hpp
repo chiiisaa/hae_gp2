@@ -47,6 +47,9 @@ public :
 	float time = 5.00;
 	State state = playerTurn;
 
+	Font font;
+	Text fpsCounter;
+
 	Vector2f myCase[9][6]{
 		{Vector2f(84, 84),Vector2f(164, 84),Vector2f(247, 84),Vector2f(325, 84),Vector2f(406, 84),Vector2f(485, 84)},
 		{Vector2f(84, 165),Vector2f(164, 165),Vector2f(247, 165),Vector2f(325, 165),Vector2f(406, 165),Vector2f(485, 165)},

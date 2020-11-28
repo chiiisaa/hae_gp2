@@ -49,6 +49,8 @@ Game::Game(RenderWindow* win)
 	allEnemy.push_back(en);
 	en.setPosition(myCase[2][2]);
 	allEnemy.push_back(en);
+
+	/// Temp
 	inCase[5][4] = -1;
 	inCase[2][2] = -1;
 	inCase[5][5] = 1;
@@ -56,6 +58,16 @@ Game::Game(RenderWindow* win)
 	inCase[6][5] = 1;
 
 	state = playerTurn;
+
+	/// <summary>
+	/// Teste
+	/// </summary>
+	/// <param name="win"></param>
+	/// <returns></returns>
+	font.loadFromFile("res/MAIAN.TTF");
+	fpsCounter.setFont(font);
+	fpsCounter.setFillColor(Color::Red);
+	fpsCounter.setString("State :");
 }
 
 // index du player tableau
@@ -75,11 +87,14 @@ void Game::processInput(Event ev)
 			cout << endl;
 		}
 	}
+
+	/// <summary>
+	/// TESTE Enemy movement
+	/// </summary>
+	/// <param name="ev"></param>
 	if (ev.type == sf::Event::KeyReleased) {
-		if (ev.key.code == Keyboard::Key::T) /////// TESTE Enemy move
+		if (ev.key.code == Keyboard::Key::T)
 		{
-			//allEnemy[enemyIndex].setPosition(myCase[6][1]);
-			//allEnemy[enemyIndex+1].Move(Vector2f(5, 5));
 			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
 			cout << "E pos x : " << Enemypos.x << endl;
 			allEnemy[enemyIndex].move(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, myCase[7][5]);
@@ -87,37 +102,40 @@ void Game::processInput(Event ev)
 		}
 	}
 
-	if (ev.type == Event::MouseButtonPressed && state == playerTurn)
+	if (state == playerTurn)
 	{
-		for (int i = 0; i < AllPlayer.size(); i++)
+		if (ev.type == Event::MouseButtonPressed)
 		{
-			Vector2f mouseHitPlayer = AllPlayer[i].getPosition();
-			if (ev.mouseButton.x > mouseHitPlayer.x - 32 && ev.mouseButton.x < mouseHitPlayer.x + 32 && ev.mouseButton.y > mouseHitPlayer.y - 32 && ev.mouseButton.y < mouseHitPlayer.y + 32)
+			for (int i = 0; i < AllPlayer.size(); i++)
 			{
-				playercol.setPosition(AllPlayer[i].getPosition());
-				inCase[(int)SearchValueInMyCase(AllPlayer[i].getPosition()).x][(int)SearchValueInMyCase(AllPlayer[i].getPosition()).y] = 0;
-				Playeri = i;
-				mouseInPlayer = true;
+				Vector2f mouseHitPlayer = AllPlayer[i].getPosition();
+				if (ev.mouseButton.x > mouseHitPlayer.x - 32 && ev.mouseButton.x < mouseHitPlayer.x + 32 && ev.mouseButton.y > mouseHitPlayer.y - 32 && ev.mouseButton.y < mouseHitPlayer.y + 32)
+				{
+					playercol.setPosition(AllPlayer[i].getPosition());
+					inCase[(int)SearchValueInMyCase(AllPlayer[i].getPosition()).x][(int)SearchValueInMyCase(AllPlayer[i].getPosition()).y] = 0;
+					Playeri = i;
+					mouseInPlayer = true;
+				}
 			}
 		}
-	}
 
-	if (ev.type == Event::MouseMoved)
-	{
-		if (mouseInPlayer) {
-			AllPlayer[Playeri].setPosition(Vector2f(ev.mouseMove.x, ev.mouseMove.y));
-			AllPlayer[Playeri].limite();
-			playerCollisionWithPlayer();
-			particulePlayer(distanceBetweenCase(false));
-			particulePlayer(Vector2f(ev.mouseMove.x, ev.mouseMove.y));
+		if (ev.type == Event::MouseMoved)
+		{
+			if (mouseInPlayer) {
+				AllPlayer[Playeri].setPosition(Vector2f(ev.mouseMove.x, ev.mouseMove.y));
+				AllPlayer[Playeri].limite();
+				playerCollisionWithPlayer();
+				//particulePlayer(distanceBetweenCase(false));
+				particulePlayer(Vector2f(ev.mouseMove.x, ev.mouseMove.y));
+			}
 		}
-	}
 
-	if (ev.type == Event::MouseButtonReleased && mouseInPlayer)
-	{
-		AllPlayer[Playeri].setPosition(distanceBetweenCase());
-		enemydie = degatEnemy();
-		mouseInPlayer = false;
+		if (ev.type == Event::MouseButtonReleased && mouseInPlayer)
+		{
+			AllPlayer[Playeri].setPosition(distanceBetweenCase());
+			enemydie = degatEnemy();
+			mouseInPlayer = false;
+		}
 	}
 }
 
@@ -135,7 +153,6 @@ void Game::playerCollisionWithPlayer()
 			p.setPosition(LastPlayerPos);
 			casetemp = SearchValueInMyCase(Vector2f(p.getPosition().x, p.getPosition().y));
 			inCase[(int)casetemp.x][(int)casetemp.y] = 1;
-			//cout << "x " << p.getPosition().x << "Y : " << p.getPosition().y << endl;
 			break;
 		}
 	}
@@ -212,7 +229,6 @@ bool Game::degatEnemy()
 					b.setShape(false);
 					b.setPos(myCase[y][x]);
 					inCase[y][x] = 0;
-					//state = playerAttack;
 					setState(playerStartAttack);
 					return true;
 				}
@@ -226,7 +242,6 @@ bool Game::degatEnemy()
 					b.setPos(myCase[y][x]);
 					AllPlayer[Playeri].Attack();
 					inCase[y][x] = 0;
-					//state = playerAttack;
 					setState(playerStartAttack);
 					return true;
 				}
@@ -243,7 +258,6 @@ int Game::getEnemy(Vector2f pos)
 	{
 		if (allEnemy[i].getPosition() == pos)
 		{
-			//cout << i << endl;
 			return i;
 		}
 	}
@@ -255,19 +269,29 @@ int Game::getPlayer(Vector2f pos)
 	{
 		if (AllPlayer[i].getPosition() == pos)
 		{
-			//cout << i << endl;
 			return i;
 		}
 	}
 }
 
+float timeA = 1.0; //Temp
 void Game::update(float dt) {
-	//AllPlayer[playerIndex].playerTextureMovee(+1);
-	//AllPlayer[2].playerTextureMovee(-1);
 
-	/*if (state == playerTurn) time -= dt;
-	if (time <= 0) state = enemyTurn;*/
-
+	if (state == playerTurn)
+	{
+		time -= dt;
+		if (time <= 0)
+		{
+			if (mouseInPlayer)
+			{
+				//AllPlayer[Playeri].setPosition(LastPlayerPos);
+				AllPlayer[Playeri].setPosition(distanceBetweenCase(true));
+				mouseInPlayer = false;
+			}
+			time = 5.00;
+			setState(enemyTurn);
+		}
+	}
 	/*if (enemydie)
 	{
 	if(attckPlayer)  attckPlayer = AllPlayer[Playeri].Attack();
@@ -286,13 +310,11 @@ void Game::update(float dt) {
 	switch (state)
 	{
 	case playerStartAttack:
-		//AllPlayer[playerIndex].bStart();
 		if (!b.bTransition()) setState(playerAttack);
 		break;
 	case playerAttack:
 		AllPlayer[playerIndex].Attack();
 		if (!AllPlayer[Playeri].Attack()) setState(playerKill);
-		//state = playerKill;
 		break;
 	case playerKill:
 		allEnemy[enemyIndex].Die(dt);
@@ -301,10 +323,17 @@ void Game::update(float dt) {
 			allEnemy.erase(allEnemy.begin() + enemyIndex);
 			enemydie = false;
 			setState(playerTurn);
-			//state = playerTurn;
 		}
 		break;
-	default:
+	case enemyTurn:
+		timeA -= dt;
+		if (timeA <= 0)
+		{
+			timeA = 1.0;
+			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
+			if(allEnemy[enemyIndex].move(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, myCase[7][5])) setState(playerTurn) ;
+			
+		}
 		break;
 	}
 
@@ -321,7 +350,6 @@ void Game::update(float dt) {
 
 void Game::draw(RenderWindow& win) {
 	win.draw(bg);
-	//playercol.draw(win);
 	int tempX = 50;
 	for (int y = 0; y < 9; y++)
 	{
@@ -351,6 +379,7 @@ void Game::draw(RenderWindow& win) {
 	}
 
 	b.draw(win);
+	win.draw(fpsCounter);
 }
 
 void Game::setState(State st) {
@@ -359,18 +388,22 @@ void Game::setState(State st) {
 	switch (state)
 	{
 	case playerTurn:
-		AllPlayer[Playeri].color(Color::Black);
-		AllPlayer[playerIndex].color(Color::Black);
+		//AllPlayer[Playeri].color(Color::Black);
+		//AllPlayer[playerIndex].color(Color::Black);
+		fpsCounter.setString("State: playerTurn");
 		break;
 	case enemyTurn:
+		fpsCounter.setString("State: enemyTurn");
 		break;
 	case playerAttack:
 		AllPlayer[Playeri].color(Color::Yellow);
 		AllPlayer[playerIndex].color(Color::Yellow);
+		fpsCounter.setString("State: playerAttack");
 		break;
 	case playerKill:
 		AllPlayer[Playeri].color(Color::Red);
 		AllPlayer[playerIndex].color(Color::Red);
+		fpsCounter.setString("State: playerKill");
 		break;
 	default:
 		break;
