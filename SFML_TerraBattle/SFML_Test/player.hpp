@@ -48,21 +48,19 @@ public:
 		return shape.getPosition();
 	}
 
-	float mul = 0.01;
+	float mul = 0.05;
 	bool Attack()
 	{
-		//cout << shape.getScale().x << endl;
 		float size = shape.getScale().x + mul;
 		if (shape.getScale().x > 2)
 		{
-			mul = -0.01;
+			mul = -0.05;
 		}
 		shape.setScale(Vector2f(size, size));
-		//cout << shape.getScale().x << endl;
 		if (shape.getScale().x <= 1)
 		{
-			cout << "play attack false" << endl;
-			mul = 0.01;
+			mul = 0.05;
+			cout << "false" << endl;
 			return false;
 		}
 		return true;

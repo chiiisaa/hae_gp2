@@ -45,9 +45,9 @@ public:
 	{
 		shape.setFillColor((sf::Color(255, 255, 255, 100)));
 		Vector2f bScale = shape.getScale();
-		if (bScale.y < 9 || bScale.x < 9) shape.setScale(bScale.x - 0.1, bScale.y - 0.1);
+		if (bScale.x < 9) shape.setScale(bScale.x - 0.2, bScale.y - 0.2);
 		else shape.setScale(bScale.x - 1, bScale.y - 1);
-		if (bScale.y > 1 || bScale.x > 1) return true;
+		if (bScale.x > 1) return true;
 		else
 		{
 			bStart();

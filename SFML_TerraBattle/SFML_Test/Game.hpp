@@ -19,6 +19,8 @@ enum State {
 	playerStartAttack,
 	playerAttack,
 	playerKill,
+	win,
+	loose,
 };
 
 class Game {
@@ -47,8 +49,12 @@ public :
 	float time = 5.00;
 	State state = playerTurn;
 
+	/// <summary>
+	/// Temporaire
+	/// </summary>
 	Font font;
-	Text fpsCounter;
+	Text stateString;
+	Text tempsText;
 
 	Vector2f myCase[9][6]{
 		{Vector2f(84, 84),Vector2f(164, 84),Vector2f(247, 84),Vector2f(325, 84),Vector2f(406, 84),Vector2f(485, 84)},
@@ -89,6 +95,8 @@ public :
 
 	//Cherche la valeur dans le tableau myCase et renvoie sa position dans le tableau
 	Vector2f SearchValueInMyCase(Vector2f value);
+
+	void ChangeValueInCase(Vector2f target,int value);
 
 	//parcours le tableau MyCase et renvoie la case la plus proche du joueur
 	Vector2f distanceBetweenCase(bool isPlayer = true);

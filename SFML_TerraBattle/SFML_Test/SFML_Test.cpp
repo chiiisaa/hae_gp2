@@ -16,7 +16,7 @@ int main()
 {
 	cout << "Hello World!\n";
 	RenderWindow window(VideoMode(640, 960, 32), "Test Terra");
-
+	window.setVerticalSyncEnabled(true);
 	Font font;
 	if (!font.loadFromFile("res/MAIAN.TTF")) {
 		cout << "ERROR NO FONT" << endl;
@@ -27,7 +27,7 @@ int main()
 
 	sf::Text fpsCounter;
 	fpsCounter.setFont(font);
-	//fpsCounter.setString("FPS:");
+	fpsCounter.setString("FPS:");
 
 
 	double frameStart = 0.0;
@@ -51,7 +51,7 @@ int main()
 		window.clear();
 		g.draw(window);
 
-		window.draw(fpsCounter);
+		//window.draw(fpsCounter);
 		window.display();
 
 		frameEnd = Lib::getTimeStamp();
