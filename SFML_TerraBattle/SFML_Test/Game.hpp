@@ -7,6 +7,7 @@
 #include "player.hpp"
 #include "particule.hpp"
 #include "Blanc.hpp"
+#include "LevelManager.hpp"
 
 #include <iostream>
 
@@ -15,16 +16,24 @@ using namespace sf;
 
 enum State {
 	playerTurn,
-	enemyTurn,
 	playerStartAttack,
 	playerAttack,
 	playerKill,
+
+	enemyTurn,
+	enemyAttack,
+
 	win,
 	loose,
 };
 
+enum GameSate { Menu, GamePlayState, LevelState};
+
 class Game {
 public :
+
+	LevelManager Lv;
+
 	RenderWindow* win = nullptr;
 	//RectangleShape player;
 	//RectangleShape player2;
@@ -55,6 +64,12 @@ public :
 	Font font;
 	Text stateString;
 	Text tempsText;
+
+	RectangleShape bgNextLevel;
+	Text NextText;
+	Text Victoire;
+	bool Nextbool;
+	Text degat;
 
 	Vector2f myCase[9][6]{
 		{Vector2f(84, 84),Vector2f(164, 84),Vector2f(247, 84),Vector2f(325, 84),Vector2f(406, 84),Vector2f(485, 84)},
@@ -101,9 +116,9 @@ public :
 	//parcours le tableau MyCase et renvoie la case la plus proche du joueur
 	Vector2f distanceBetweenCase(bool isPlayer = true);
 
-	bool enemydie = false;
 	int enemyIndex;
 	int playerIndex;
+
 	//si on touche un enemy
 	bool degatEnemy();
 
@@ -121,4 +136,7 @@ public :
 	void draw(RenderWindow& win);
 
 	void setState(State st);
+
+	void changeLevel();
+	void change();
 };

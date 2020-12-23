@@ -17,6 +17,10 @@ public:
 	Texture textureSansFond;
 	RectangleShape playerTexture;
 	
+	RectangleShape healthBarBg;
+	RectangleShape healthBar;
+	float health = 100;
+	float Maxhealth = 100;
 
 	player() {
 		shape = RectangleShape(Vector2f(64, 64));
@@ -31,12 +35,18 @@ public:
 		playerTexture.setOrigin(25, 25);
 		//playerTexture.setPosition(247, 324);
 		playerTexture.setTexture(&text);
+
+		iniHealth();
 	}
 
 
 	void setPosition(Vector2f pos)
 	{
 		shape.setPosition(pos);
+
+		this->healthBarBg.setPosition(shape.getPosition());
+
+		this->healthBar.setPosition(shape.getPosition());
 	}
 
 	void color(Color c)
@@ -60,7 +70,6 @@ public:
 		if (shape.getScale().x <= 1)
 		{
 			mul = 0.05;
-			cout << "false" << endl;
 			return false;
 		}
 		return true;
@@ -74,9 +83,41 @@ public:
 		if (getPosition().y < 84) setPosition(Vector2f(getPosition().x, 84));
 	}
 
+	void iniHealth() {
+		healthBarBg.setSize(Vector2f(60, 10));
+		healthBarBg.setFillColor(Color::Black);
+		healthBarBg.setOrigin(Vector2f(22, -17));
+		healthBarBg.setPosition(shape.getPosition());
+
+		healthBar.setSize(Vector2f(60, 10));
+		healthBar.setFillColor(Color::Yellow);
+		healthBar.setOrigin(Vector2f(22, -17));
+		healthBar.setPosition(shape.getPosition());
+	}
+
+	void updateHp()
+	{
+		float percent = health / Maxhealth;
+
+		healthBar.setSize(Vector2f(60 * percent, healthBar.getSize().y));
+	}
+
+	void looseHp(float degat)
+	{
+		health -= degat;
+		if (health < 0)
+		{
+			health = 0;
+		}
+		updateHp();
+	}
+
 	void draw(sf::RenderWindow& win)
 	{
 		win.draw(shape);
+
+		win.draw(healthBarBg);
+		win.draw(healthBar);
 		//win.draw(playerTexture);
 	}
 };

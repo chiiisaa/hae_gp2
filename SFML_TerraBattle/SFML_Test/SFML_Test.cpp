@@ -7,14 +7,17 @@
 #include <SFML/Window/Keyboard.hpp>
 #include "Game.hpp"
 #include "Lib.hpp"
+#include "MainMenu.hpp"
 
 using namespace std;
 using namespace sf;
 
+enum class m { a, b };
 
 int main()
 {
 	cout << "Hello World!\n";
+	GameSate gameState = Menu;
 	RenderWindow window(VideoMode(640, 960, 32), "Test Terra");
 	window.setVerticalSyncEnabled(true);
 	Font font;
@@ -34,6 +37,9 @@ int main()
 	double frameEnd = 0.0;
 
 	Game g(&window);
+	MainMenu menu(&window,640, 960);
+	LevelManager LV;
+
 	while (window.isOpen())
 	{
 
@@ -45,11 +51,44 @@ int main()
 		}
 
 		Event event;
-		while (window.pollEvent(event))
+		
+		switch (gameState)
+		{
+			case GamePlayState:
+				while (window.pollEvent(event))
+					g.processInput(event);
+				g.update(dt);
+				window.clear();
+				g.draw(window);
+			break;
+			case Menu:
+				while (window.pollEvent(event))
+					menu.processInput(event,gameState);
+				menu.update();
+				window.clear();
+				menu.draw(window);
+				break;
+			case LevelState:
+				while (window.pollEvent(event))
+					LV.nextLevel();
+				window.clear();
+				LV.draw(window);
+				break;
+		default:
+			break;
+		}
+		
+		/*while (window.pollEvent(event))
+			menu.processInput(event);
+		menu.update();
+		window.clear();
+		menu.draw(window);*/
+
+		/*while (window.pollEvent(event))
 			g.processInput(event);
 		g.update(dt);
 		window.clear();
-		g.draw(window);
+		g.draw(window);*/
 
 		//window.draw(fpsCounter);
 		window.display();

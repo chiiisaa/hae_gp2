@@ -118,7 +118,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\libs\include</AdditionalIncludeDirectories>
     </ClCompile>
@@ -152,10 +152,13 @@
     <ClCompile Include="SFML_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="Blanc.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="Lib.hpp" />
+    <ClInclude Include="MainMenu.hpp" />
     <ClInclude Include="particule.hpp" />
     <ClInclude Include="player.hpp" />
   </ItemGroup>
