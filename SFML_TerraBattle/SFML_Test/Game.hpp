@@ -22,6 +22,7 @@ enum State {
 
 	enemyTurn,
 	enemyAttack,
+	enemyMove,
 
 	win,
 	loose,
@@ -42,6 +43,7 @@ public :
 	player Player;
 	vector<player> AllPlayer;
 	Vector2f LastPlayerPos; 
+	Vector2f EnemyStartMovePos;
 	vector<particule> partPlayer; //particule player
 
 	Blanc b;

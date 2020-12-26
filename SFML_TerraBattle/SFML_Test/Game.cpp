@@ -319,6 +319,7 @@ int Game::getPlayer(Vector2f pos)
 }
 
 float timeForEnemy = 1.0; //Temp
+Vector2f EnemyStartMovePos;
 void Game::update(float dt) {
 
 	if (state != enemyTurn)
@@ -385,7 +386,8 @@ void Game::update(float dt) {
 
 			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
 			player p = allEnemy[enemyIndex].FindPlayer(AllPlayer);
-			Vector2f target = allEnemy[enemyIndex].p(SearchValueInMyCase(p.getPosition()), myCase);
+			Vector2f target = allEnemy[enemyIndex].p(SearchValueInMyCase(p.getPosition()), myCase, EnemyStartMovePos,inCase);
+			cout << EnemyStartMovePos.x << " " <<EnemyStartMovePos.y << endl;
 			Vector2f targetpos = SearchValueInMyCase(target);
 			/*allEnemy[enemyIndex].createsNodes(myCase, inCase, Enemypos);
 			allEnemy[enemyIndex].dij_process(targetpos, inCase, myCase);
@@ -490,6 +492,7 @@ void Game::setState(State st) {
 		stateString.setString("State: playerTurn");
 		break;
 	case enemyTurn:
+		EnemyStartMovePos = allEnemy[enemyIndex].getPosition();
 		tempsText.setString("time : 0");
 		time = 5.00;
 		stateString.setString("State: enemyTurn");

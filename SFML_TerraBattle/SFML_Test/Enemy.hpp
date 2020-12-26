@@ -252,7 +252,6 @@ public:
 			cout << " C'est la meme !!!!" << endl;
 		}
 		myPosInCase = myCase[dij_pred[sdeb].x][dij_pred[sdeb].y];
-		cout << " dij_pred[sdeb].x " << dij_pred[sdeb].x << "dij_pred[sdeb].y " << dij_pred[sdeb].y << endl;
 		setPosition(myPosInCase);
 		return false;
 	}
@@ -284,9 +283,25 @@ public:
 	}*/
 
 	/// pas encore bon
-	Vector2f p(Vector2f pos, Vector2f myPosInCase[9][6])
+	Vector2f p(Vector2f pos, Vector2f myCase[9][6],Vector2f StartPos, int inCase[8][6])
 	{
-		return myPosInCase[(int)pos.x][(int)pos.y - 1];
+		float tempDist = 1000 * 1000 * 1000;
+		Vector2f tempCas;
+		for (int x = -1; x <= 1; x++) {
+			for (int y = -1; y <= 1; y++) {
+				if ((x == 0 && y == 0) || (x == -1 && y == -1) || (x == -1 && y == 1) || (x == 1 && y == -1) || (x == 1 && y == 1))
+					continue;
+
+				if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist && 
+					isFree(pos.x - x, pos.y - y, inCase) && StartPos != myCase[(int)pos.x - x][(int)pos.y - y])
+				{
+					tempCas = myCase[(int)pos.x - x][(int)pos.y - y];
+					tempDist = dist((Vector2i)StartPos, (Vector2i)tempCas);
+				}
+
+			}
+		}
+		return tempCas;
 	}
 
 	player FindPlayer(vector<player> p)
