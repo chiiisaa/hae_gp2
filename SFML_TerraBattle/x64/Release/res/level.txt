@@ -1,0 +1,5 @@
+0 Personage:2 Enemy:2 Position Personage 0:1,1 Personage 1:5,1 PositionE 0:2,2 1:2,5 2:3,2
+1 Personage:2 Enemy:2 Position Personage 0:1,1 Personage 1:4,1 PositionE 0:3,3 1:2,5 2:3,2
+2
+3 Personage:3 Enemy:2 Position Personage 0:1,1 Personage 1:5,5 Personage 2:3,3
+4

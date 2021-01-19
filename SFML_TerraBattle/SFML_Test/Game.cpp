@@ -122,17 +122,28 @@ void Game::processInput(Event ev)
 	if (ev.type == sf::Event::KeyReleased) {
 		if (ev.key.code == Keyboard::Key::T)
 		{
-			//Nextbool = !Nextbool;
+			Nextbool = !Nextbool;
 		}
 	}
 
 	if (Nextbool)
 	{
 		change();
+		if (ev.type == Event::MouseMoved)
+		{
+			if (ev.mouseMove.x > NextText.getPosition().x - 20 && ev.mouseMove.x < NextText.getPosition().x + 60
+				&& ev.mouseMove.y > NextText.getPosition().y - 20 && ev.mouseMove.y < NextText.getPosition().y + 40)
+			{
+				NextText.setFillColor(Color::Red);
+			}
+			else {
+				NextText.setFillColor(Color::Blue);
+			}
+		}
 		if (ev.type == Event::MouseButtonReleased)
 		{
-			if (ev.mouseMove.x > NextText.getPosition().x - 20 && ev.mouseMove.x < NextText.getPosition().x + 40
-				&& ev.mouseMove.y > NextText.getPosition().y - 20 && ev.mouseMove.y < NextText.getPosition().y + 40)
+			if (ev.mouseButton.x > NextText.getPosition().x - 20 && ev.mouseButton.x < NextText.getPosition().x + 60
+				&& ev.mouseButton.y > NextText.getPosition().y - 20 && ev.mouseButton.y < NextText.getPosition().y + 40)
 			{
 				changeLevel();
 				time = 5;
@@ -200,7 +211,25 @@ void Game::processInput(Event ev)
 
 		if (ev.type == Event::MouseButtonReleased && mouseInPlayer)
 		{
-			AllPlayer[Playeri].setPosition(distanceBetweenCase(true));
+			Vector2f tpos = distanceBetweenCase(false);
+			if (inCase[(int)SearchValueInMyCase(tpos).x][(int)SearchValueInMyCase(tpos).y] == 0)
+			{
+				AllPlayer[Playeri].setPosition(distanceBetweenCase(true));
+			}
+			else
+			{
+				AllPlayer[Playeri].setPosition(LastPlayerPos);
+				inCase[(int)SearchValueInMyCase(LastPlayerPos).x][(int)SearchValueInMyCase(LastPlayerPos).y] == 1;
+			}
+
+			mouseInPlayer = false;
+			if (!degatEnemy())
+			{
+				setState(enemyTurn);
+			}
+			/*Vector2f tpos = distanceBetweenCase(false);
+			cout << tpos.x << " " << tpos.y << endl;
+			AllPlayer[Playeri].setPosition(distanceBetweenCase(true));*/
 			mouseInPlayer = false;
 			if (!degatEnemy())
 			{
@@ -596,9 +625,11 @@ void Game::change()
 	NextText.setFont(font);
 	NextText.setFillColor(Color::Blue);
 	NextText.setString("Next");
-	//NextText.setPosition(640/2, 960/2);
+	NextText.setPosition(640/2, 520);
 	Victoire.setFont(font);
 	Victoire.setFillColor(Color::Yellow);
+	Victoire.setOutlineThickness(0.5);
+	Victoire.setOutlineColor(Color::Black);
 	Victoire.setString("Win");
 	Victoire.setPosition(640 / 2, 960 / 2);
 }

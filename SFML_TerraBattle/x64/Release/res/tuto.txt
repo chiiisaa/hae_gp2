@@ -1,0 +1,13 @@
+"hey bienvenue dans le tuto, ecoute moi bien"/setPosition(94,90)//setFace(happy)//playSound(hey)/
+ "le but c'est de vaincre tout les ennemis et pour cela il faudra encercler ton ennemis"
+"par exemple : comme cela"/setPlayer(2,247, 165,247, 324)//setEnemi(1,247, 245)/
+"ou bien"/setPlayer(0)//setEnemi(0)/
+"Comme cela"/setPlayer(2,164, 245,325, 245)//setEnemi(1,247, 245)/
+ "Pour deplacer tes personnage il suffit de cliquer avec ta souris et de le deplacer"
+ "Tu pourras egalement peut etre avoir des healer sur le terrain!"/setHealer(1,325, 84)//setPosition(247,84)/
+ "Grace a eux tu pourras soigner tes personnages"
+"Sur chaque ennemis il y a un nombre au dessus de leur tete"
+"Ce nombre indique dans combien de tour ils vont attaquer !"
+"Fait attention car si il ne te reste plus qu'une unite sur le terrain tu perdra"/setFace(sad)//setPlayer(1,164, 245)/
+"Alors fait attention a tes points de vie et bon courage !"/setFace(combat)/
+/End/

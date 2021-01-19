@@ -132,9 +132,11 @@ public:
 		}
 	}
 
+	errno_t err;
+	FILE* Level;
 	void Line(int levelIndex, GameSate& GS)
 	{
-		FILE* Level = fopen("res/tuto.txt", "r");
+		err = fopen_s(&Level, "res/tuto.txt", "r");
 		std::ifstream file("res/tuto.txt"); ;
 
 		if (!Level) {
@@ -145,7 +147,7 @@ public:
 			int retVal = 0;
 			do {
 				char _cmd[128] = {};
-				retVal = fscanf(Level, "%s", _cmd);
+				retVal = fscanf_s(Level, "%s", _cmd);
 				string strCmd(_cmd);
 
 				for (int i = 0; i <= levelIndex; i++)

@@ -64,7 +64,7 @@ public:
 	Texture text;
 
 	float time = 5.00;
-	State state = playerTurn;
+	State state;
 
 	/// <summary>
 	/// Temporaire / Teste
