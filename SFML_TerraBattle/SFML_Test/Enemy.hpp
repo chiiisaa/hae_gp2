@@ -275,17 +275,29 @@ public:
 				if ((x == 0 && y == 0) || (x == -1 && y == -1) || (x == -1 && y == 1) || (x == 1 && y == -1) || (x == 1 && y == 1))
 					continue;
 
-				if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist &&
+
+				/*if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist &&
 					isFree(pos.x - x, pos.y - y, inCase) && StartPos != myCase[(int)pos.x - x][(int)pos.y - y])
 				{
 					tempCas = myCase[(int)pos.x - x][(int)pos.y - y];
 					tempDist = dist((Vector2i)StartPos, (Vector2i)tempCas);
+				}*/
+
+				if (pos.x - x >= 0 && pos.x - x <= 7 && pos.y - y >= 0 && pos.y - y <= 5)
+				{
+					if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist &&
+						isFree(pos.x - x, pos.y - y, inCase) && StartPos != myCase[(int)pos.x - x][(int)pos.y - y])
+					{
+						tempCas = myCase[(int)pos.x - x][(int)pos.y - y];
+						tempDist = dist((Vector2i)StartPos, (Vector2i)tempCas);
+					}
 				}
 
 			}
 		}
 		cout << tempCas.x << "y : " << tempCas.y << endl;
 		//tempCas = StartPos;
+		if (tempCas == Vector2f(0,0)) return StartPos; 
 		return tempCas;
 	}
 
@@ -299,14 +311,14 @@ public:
 			{
 				health = var.health;
 				P = var;
-				dir = P.getPosition() - enemy.getPosition();
+				//dir = P.getPosition() - enemy.getPosition();
 			}
 		}
 		return P;
 	}
 
 	float timeAttack = 0.6;
-	Vector2f dir;
+	//Vector2f dir;
 	bool attack(Vector2f player, float dt, Vector2f startPos)
 	{
 		timeAttack -= dt;

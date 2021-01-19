@@ -322,9 +322,9 @@ Vector2f Game::distanceBetweenCase(bool isPlayer)
 //si on touche un enemy
 bool Game::degatEnemy()
 {
-	for (int y = 0; y < 8; y++)
+	for (int y = 0; y < 7; y++)
 	{
-		for (int x = 0; x < 6; x++)
+		for (int x = 0; x < 5; x++)
 		{
 			if (inCase[y][x] == -1)
 			{
@@ -486,6 +486,9 @@ void Game::update(float dt) {
 
 			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
 			enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
+			cout << "enemyTarget : " << enemyTarget.getPosition().x << enemyTarget.getPosition().y << endl;
+			//Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
+			cout << "SearchValueInMyCase(enemyTarget.getPosition())" << SearchValueInMyCase(enemyTarget.getPosition()).x << "y " << SearchValueInMyCase(enemyTarget.getPosition()).y << endl;
 			Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
 			Vector2f targetpos = SearchValueInMyCase(target);
 
@@ -640,6 +643,15 @@ void Game::changeLevel()
 	allEnemy.clear();
 	Lv.nextLevel();
 	enemyIndex = 0;
+
+	for (int y = 0; y < 8; y++)
+	{
+		for (int x = 0; x < 6; x++)
+		{
+			inCase[y][x] = 0;
+		}
+	}
+
 	for (int i = 0; i < Lv.numbreOfCharacter.at("Personage"); i++)
 	{
 		Player.setPosition(myCase[Lv.PositionPerso.at(i).x][Lv.PositionPerso.at(i).y]);
