@@ -27,6 +27,7 @@ public:
 	Texture texturePerso;
 	Texture textureBg;
 	Texture texturePlayer;
+	Texture textureHealer;
 	Texture textureEnemie;
 
 	unordered_map<string, string> Audio;
@@ -59,7 +60,8 @@ public:
 		bg.setTexture(&textureBg);
 
 		texturePlayer.loadFromFile("images/playerS.PNG");
-		textureEnemie.loadFromFile("images/cat1.png");
+		textureHealer.loadFromFile("images/playerH.PNG");
+		textureEnemie.loadFromFile("images/catTuto.PNG");
 
 		LigneX = RectangleShape(Vector2f(5, 640));
 		LigneX.setOrigin(0, 0);
@@ -160,45 +162,49 @@ public:
 	void dialogueAndActions(string& y, GameSate& GS)
 	{
 		string& t = y;
-		string texte = s(y, '"', '"');
+		string texte = split(y, '"', '"');
 		text.setString(texte);
 		text.setScale(0.5, 0.5);
 		t.erase(0, texte.length());
-		vector<string>Actions = se(t, '/', '/');
-		aaa(Actions, GS);
-		//HandleAction(Actions);
+		vector<string>Actions = splits(t, '/', '/');
+		HandleAction(Actions, GS);
 	}
 
-	void aaa(vector<string>Actions, GameSate& GS)
+	void HandleAction(vector<string>Actions, GameSate& GS)
 	{
 		for (int i = 0; i < Actions.size(); i++)
 		{
 			if (containe(Actions[i], "setPosition"))
 			{
-				string data = s(Actions[i], '(', ')');
+				string data = split(Actions[i], '(', ')');
 				CommandSetPosition(data);
 				cout << "position" << endl;
 			}
 			else if (containe(Actions[i], "setFace"))
 			{
-				string data = s(Actions[i], '(', ')');
+				string data = split(Actions[i], '(', ')');
 				CommandSetFace(data);
 				cout << "face" << endl;
 			}
 			else if (containe(Actions[i], "playSound"))
 			{
-				string data = s(Actions[i], '(', ')');
+				string data = split(Actions[i], '(', ')');
 				CommandPlaySound(data);
 				cout << "playSound" << endl;
 			}
 			else if (containe(Actions[i], "setPlayer"))
 			{
-				string data = s(Actions[i], '(', ')');
+				string data = split(Actions[i], '(', ')');
 				CommandSetPlayer(data);
+			}
+			else if (containe(Actions[i], "setHealer"))
+			{
+				string data = split(Actions[i], '(', ')');
+				CommandSetHealer(data);
 			}
 			else if (containe(Actions[i], "setEnemi"))
 			{
-				string data = s(Actions[i], '(', ')');
+				string data = split(Actions[i], '(', ')');
 				CommandSetEnemie(data);
 			}
 			else if (containe(Actions[i], "End"))
@@ -246,11 +252,33 @@ public:
 		}
 	}
 
+	void CommandSetHealer(string data)
+	{
+		player.clear();
+		RectangleShape temp = RectangleShape(Vector2f(64, 64));
+		temp.setOrigin(25, 25);
+		temp.setTexture(&textureHealer);
+		int x = 1;
+		int y = 2;
+		vector<string> param = coup(data, ',');
+		std::string::size_type sz;
+		int numbre = std::stoi(param[0], &sz);
+		for (int i = 0; i < numbre; i++)
+		{
+			int positionX = std::stoi(param[x], &sz);
+			int positionY = std::stoi(param[y], &sz);
+			player.push_back(temp);
+			player[i].setPosition(positionX, positionY);
+			x += 2;
+			y += 2;
+		}
+	}
+
 	void CommandSetEnemie(string data)
 	{
 		enemie.clear();
-		RectangleShape temp = RectangleShape(Vector2f(64, 64));
-		temp.setOrigin(25, 25);
+		RectangleShape temp = RectangleShape(Vector2f(70, 70));
+		temp.setOrigin(25, 30);
 		temp.setTexture(&textureEnemie);
 		int x = 1;
 		int y = 2;
@@ -305,7 +333,7 @@ public:
 		return final;
 	}
 
-	vector<string> se(string& s, char char1, char char2)
+	vector<string> splits(string& s, char char1, char char2)
 	{
 		int a = 0;
 		string temp;
@@ -337,7 +365,7 @@ public:
 		return tem;
 	}
 
-	string s(string& s, char char1, char char2)
+	string split(string& s, char char1, char char2)
 	{
 		int a = 0;
 		string temp;

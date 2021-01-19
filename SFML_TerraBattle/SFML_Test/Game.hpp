@@ -234,20 +234,6 @@ public:
 			degatText[i].move(0, -5);
 		}
 
-		//degatText[0].move(0, -2);
-		/*for (int i = 0; i < degatText.size();i++)
-		{
-			//if (i == degatText.size() - 1) setState(enemyTurn);
-			timeDegetText -= dt;
-			degatText[degatText.size()-1].move(0, -1);
-			//degatText[i].setPosition(degatText[i].getPosition().x, degatText[i].getPosition().y - 50);
-			/*if (timeDegetText <= 0)
-			{
-				//if (i == degatText.size() - 1) setState(enemyTurn);
-				timeDegetText = 100;
-
-			}
-		}*/
 	}
 
 	void Heal()

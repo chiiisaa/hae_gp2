@@ -122,47 +122,7 @@ void Game::processInput(Event ev)
 	if (ev.type == sf::Event::KeyReleased) {
 		if (ev.key.code == Keyboard::Key::T)
 		{
-			//changeLevel();
-			Nextbool = !Nextbool;
-			//allEnemy[enemyIndex].attack(AllPlayer[Playeri].getPosition(),0.001);
-
-
-			//allEnemy[enemyIndex].looseHp(5);
-
-			/*Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
-			cout << "E pos x : " << Enemypos.x << endl;
-			allEnemy[enemyIndex].move(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, myCase[7][5]);
-			cout << allEnemy[enemyIndex ].getPosition().x << " " << allEnemy[enemyIndex].getPosition().y << endl;*/
-		}
-		if (ev.key.code == Keyboard::Key::H)
-		{
-			//AttackText(AllPlayer[playerIndex].getPosition(), AllPlayer[Playeri].getPosition());
-			/*degat.setFont(font);
-			degat.setFillColor(Color::Black);
-			degat.setPosition(AllPlayer[playerIndex].getPosition());
-			degat.setString(std::to_string(30));
-			degatText.push_back(degat);*/
-			//degatText[0].setPosition(AllPlayer[Playeri].getPosition().x, AllPlayer[Playeri].getPosition().y - 5);
-			//AllPlayer[AllPlayer.size() - 1].health -= 20;
-
-			AllPlayer[0].setPosition(Vector2f(286, 324));
-		}
-		if (ev.key.code == Keyboard::Key::G)
-		{
-			//AttackText(AllPlayer[playerIndex].getPosition(), AllPlayer[Playeri].getPosition());
-
-			/*Vector2f direction = Vector2f(attackText.getPosition().x - attackText1.getPosition().x, (attackText.getPosition().y - attackText1.getPosition().y));
-			float norme = std::sqrt(direction.x * direction.x + direction.y * direction.y);
-			direction = direction / norme;
-			cout << "direction x :" << direction.x << "direction y :" << direction.y << endl;
-
-			attackText.move(-direction);
-			attackText1.move(direction);*/
-
-			//degatText[0].setPosition(AllPlayer[Playeri].getPosition().x, AllPlayer[Playeri].getPosition().y - 5);
-
-			//cout << "allEnemy.size() : " << allEnemy.size() << endl;
-
+			//Nextbool = !Nextbool;
 		}
 	}
 
@@ -424,7 +384,6 @@ void Game::update(float dt) {
 			tempsText.setString("time : 0");
 			if (mouseInPlayer) // si le temps = 0 et qu'on "déplace" encore le player avec la souris
 			{
-				//AllPlayer[Playeri].setPosition(LastPlayerPos);
 				AllPlayer[Playeri].setPosition(distanceBetweenCase(true)); // on met la position avec la case la plus proche 
 				mouseInPlayer = false;
 			}
@@ -459,13 +418,6 @@ void Game::update(float dt) {
 		if (!AllPlayer[Playeri].Attack()) setState(playerKill);
 		break;
 	case playerKill:
-		/*randNum = rand() % (10 - 30 + 1) + 10;
-		cout << randNum << endl;
-		degat.setFont(font);
-		degat.setFillColor(Color::Yellow);
-		degat.setString(std::to_string(randNum));
-		degat.setPosition(allEnemy[enemyIndex].getPosition());*/
-		//soundEffect.openFromFile("sons/heal.wav");
 		if (AllPlayer[Playeri].healer || AllPlayer[playerIndex].healer)
 		{
 			//if(soundEffects.getStatus() == sf::SoundSource::Status::Stopped) soundEffects.play();
@@ -477,34 +429,6 @@ void Game::update(float dt) {
 		AttackTextMove();
 
 		EnnemyDegat(dt);
-
-		/*for (int i = 0; i < degatInt.size(); i++)
-		{
-			allEnemy[enemyIndex].looseHp(degatInt[i]);
-		}*/
-
-		/*if (allEnemy[enemyIndex].die)
-		{
-			allEnemy[enemyIndex].Die(dt);
-			if (allEnemy[enemyIndex].destroy)
-			{
-				allEnemy.erase(allEnemy.begin() + enemyIndex);
-				cout << "allEnemy.size() : " << allEnemy.size() << endl;
-				if (allEnemy.size() <= 0)
-				{
-					Nextbool = true;
-					//changeLevel();
-					setState(wait);
-				}
-				else
-				{
-					if (enemyIndex != 0) enemyIndex--; //temp
-
-					setState(enemyTurn);
-				}
-			}
-		}
-		//else setState(enemyTurn);*/
 		break;
 	case enemyTurn:
 		EnemyMove.clear();
@@ -535,11 +459,6 @@ void Game::update(float dt) {
 			enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
 			Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
 			Vector2f targetpos = SearchValueInMyCase(target);
-			/*allEnemy[enemyIndex].createsNodes(myCase, inCase, Enemypos);
-			allEnemy[enemyIndex].dij_process(targetpos, inCase, myCase);
-			//allEnemy[enemyIndex].vvv(myCase);
-			allEnemy[enemyIndex].movee(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, targetpos, inCase);
-			auto pos = 0;*/
 
 			if (allEnemy[enemyIndex].move(Enemypos, myCase, targetpos, inCase))
 			{
@@ -549,23 +468,6 @@ void Game::update(float dt) {
 				iniDegat(2, 10, 20, enemyTarget.getPosition());
 				setState(enemyMove);
 			}
-
-			/*timeForEnemy = 1.0;
-			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
-			inCase[(int)Enemypos.x][(int)Enemypos.y] = 0;
-			//ChangeValueInCase(Enemypos, 0);
-			//Vector2f target = myCase[4][5];
-			Vector2i temp = allEnemy[enemyIndex].SearchPosAttackPlayer(inCase);
-			Vector2f target = myCase[temp.x][temp.y];
-			//cout << " target : " << target.x << " " << target.y << endl;
-			if (allEnemy[enemyIndex].move(allEnemy[enemyIndex].getPosition(), Enemypos, myCase, target, inCase))
-			{
-				inCase[(int)SearchValueInMyCase(target).x][(int)SearchValueInMyCase(target).y] = -1;
-				//ChangeValueInCase(target,-1);
-				//setState(enemyAttack);
-				AllPlayer[Playeri].looseHp(10);
-				setState(playerTurn);
-			}*/
 		}
 		break;
 	case enemyMove:
@@ -579,42 +481,6 @@ void Game::update(float dt) {
 		PlaysongOnce(soundEffects, "sons/Meow.ogg");
 		AllPlayer[getPlayer(enemyTarget.getPosition())].Degat(dt);
 		PlayerDegat(dt, enemyTarget);
-
-		//AllPlayer[playerIndex].Degat(dt);
-
-		/*player p = allEnemy[enemyIndex].FindPlayer(AllPlayer);
-		if (allEnemy[enemyIndex].attack(p.getPosition(), dt, EnemyStartMovePos))
-		{
-
-			PlayerDegat(dt, p);
-
-			//AllPlayer[getPlayer(p.getPosition())].looseHp(60);
-
-
-
-			for (int i = 0; i < degatInt.size(); i++)
-			{
-				AllPlayer[getPlayer(p.getPosition())].looseHp(degatInt[i]);
-			}
-
-			if (AllPlayer[getPlayer(p.getPosition())].die)
-			{
-				Vector2f tempPosPlayer = p.getPosition();
-				inCase[(int)SearchValueInMyCase(tempPosPlayer).x][(int)SearchValueInMyCase(tempPosPlayer).y] = 0;
-
-				AllPlayer.erase(AllPlayer.begin() + getPlayer(tempPosPlayer));
-				if (AllPlayer.size() <= 0)
-				{
-					//LOSE
-
-					setState(loose);
-
-					cout << "LOSE" << endl;
-				}
-			}
-
-			setState(playerTurn);
-		}*/
 		break;
 	default:
 		break;

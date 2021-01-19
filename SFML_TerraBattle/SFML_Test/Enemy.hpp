@@ -244,20 +244,6 @@ public:
 		}
 	}
 
-	/*void movee(Vector2f myPos, Vector2f myPosInCase, Vector2f myCase[9][6], Vector2f target, int inCase[8][6])
-	{
-		Vector2i sdeb = Vector2i((int)myPosInCase.x, (int)myPosInCase.y);
-		Vector2i sfin = Vector2i((int)target.x, (int)target.y);
-
-		Vector2i a = dij_pred[sdeb];
-		if (sdeb == sfin)
-		{
-			cout << " C'est la meme !!!!" << endl;
-		}
-		myPosInCase = myCase[dij_pred[sdeb].x][dij_pred[sdeb].y];
-		cout << " dij_pred[sdeb].x " << dij_pred[sdeb].x << "dij_pred[sdeb].y " << dij_pred[sdeb].y << endl;
-		setPosition(myPosInCase);
-	}*/
 
 
 	bool move(Vector2f myPosInCase, Vector2f myCase[9][6], Vector2f target, int inCase[8][6])
@@ -278,31 +264,6 @@ public:
 		return false;
 	}
 
-
-	/*auto SearchPosAttackPlayer(int inCase[8][6])
-	{
-		for (int y = 0; y < 8; y++)
-		{
-			for (int x = 0; x < 6; x++)
-			{
-				//cout << inCase[y][x];
-				if (inCase[y][x] == 1)
-				{
-					if (y != 0 && inCase[y - 1][x] != 1)
-					{
-						targetPlayer = Vector2i(y, x);
-						return Vector2i(y - 1, x);
-					}//temporaire
-					else if (x != 0 && inCase[y][x-1] != 1)
-					{
-						cout << x << endl;
-						targetPlayer = Vector2i(y, x);
-						return Vector2i(y, x-1);
-					}//temporaire
-				}
-			}
-		}
-	}*/
 
 	/// temp
 	Vector2f positionTarget(Vector2f pos, Vector2f myCase[9][6], Vector2f StartPos, int inCase[8][6])
