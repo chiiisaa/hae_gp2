@@ -1,0 +1,9 @@
+"hey bienvenue dans le tuto, ecoute moi bien"/setPosition(94,90)//setFace(happy)//playSound(hey)/
+ "le but c'est de vaincre tout les ennemis et pour cela il faudra encercler ton ennemis"
+"par exemple : comme cela"/setPlayer(2,247, 165,247, 324)//setEnemi(1,247, 245)/
+"ou bien"/setPlayer(0)//setEnemi(0)/
+"Comme cela"/setPlayer(2,164, 245,325, 245)//setEnemi(1,247, 245)/
+"Mais fait attention car les ennemis aussi attaque"
+"et si il ne te reste plus qu'une unite sur le terrain tu perdra"/setFace(sad)//setPlayer(1,164, 245)/
+"Alors fait attention a tes point de vie et bon courage !"/setFace(combat)/
+/End/

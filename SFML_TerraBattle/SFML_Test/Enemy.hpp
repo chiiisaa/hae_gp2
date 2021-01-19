@@ -48,12 +48,17 @@ public:
 	float health = 100;
 	float Maxhealth = 100;
 
+	int turn;
+	int debutTurn;
+	CircleShape circle;
+	Text textTurn;
+	Font font;
+
 	Enemy() {
 		enemy = RectangleShape(Vector2f(64, 64));
 		enemy.setOrigin(25, 25);
 		EnemyImage = RectangleShape(Vector2f(64, 64));
 		EnemyImage.setOrigin(25, 25);
-
 		bool isOK = text.loadFromFile("images/cat1.png");
 		textureSansFond.loadFromFile("images/cat.png");
 		if (!isOK)
@@ -65,7 +70,26 @@ public:
 		EnemyImage.setTexture(&textureSansFond);
 		EnemyImage.setFillColor((sf::Color(255, 255, 255, 0)));
 
+		circle.setRadius(13);
+		circle.setPosition(enemy.getPosition());
+
+		font.loadFromFile("res/MAIAN.TTF");
+		textTurn.setFont(font);
+		textTurn.setString(std::to_string(turn));
+		textTurn.setFillColor(Color::Black);
+		textTurn.setOrigin(-7, 5);
+		textTurn.setPosition(circle.getPosition());
+
 		this->iniHealth();
+
+
+	}
+
+	void setTurn(int T)
+	{
+		debutTurn = T;
+		turn = T;
+		textTurn.setString(std::to_string(turn));
 	}
 
 	void setPosition(Vector2f pos)
@@ -75,11 +99,26 @@ public:
 		this->healthBarBg.setPosition(enemy.getPosition());
 
 		this->healthBar.setPosition(enemy.getPosition());
+		circle.setPosition(enemy.getPosition().x + 22, enemy.getPosition().y - 35);
+		textTurn.setPosition(circle.getPosition());
 	}
 
 	Vector2f getPosition()
 	{
 		return enemy.getPosition();
+	}
+
+	bool updateTurn()
+	{
+		turn -= 1;
+		if (this->turn <= 0)
+		{
+			textTurn.setString(std::to_string(turn));
+			turn = debutTurn;
+			return true;
+		}
+		textTurn.setString(std::to_string(turn));
+		return false;
 	}
 
 	void Die(float dt)
@@ -98,20 +137,9 @@ public:
 		if (time <= 0.1) destroy = true;
 	}
 
-	void Move(Vector2f target)
-	{
-		enemy.move(target);
-	}
-
-	/// pas encore bon
-	Vector2f LastPosEnemy;
-
-	vector<Vector2f> Enemypos;
-
 	vector<sf::Vector2i> allNodes;
 	std::unordered_map<Vector2i, sf::Vector2i> dij_pred;
-	//std::map<string, int> dij_pred;
-	std::vector<float> deeeeeeeee;
+	std::vector<float> d;
 
 	bool isFree(int a, int b, int inCase[8][6])
 	{
@@ -136,22 +164,18 @@ public:
 
 	void dij_init(std::vector<sf::Vector2i>& g, Vector2i start)
 	{
-		deeeeeeeee.clear();
-		deeeeeeeee.resize(500000, 10000000);
+		d.clear();
+		d.resize(500000, 10000000);
 		dij_pred.clear();
 		for (auto& s : g) {
 			int key = getKey(s);
-			deeeeeeeee[key] = 1000 * 1000 * 1000;
+			d[key] = 1000 * 1000 * 1000;
 		}
-		deeeeeeeee[getKey(start)] = 0;
+		d[getKey(start)] = 0;
 	}
 
 	int getKey(sf::Vector2i vec) {
 		return vec.x + (vec.y * 256);
-		//x = 0 => 0
-		//x =3 et y = 2
-		//key = 3 + 256*2 = 511
-		//=> moins de colonne que 256 
 	}
 
 	bool dij_findMin(std::vector<sf::Vector2i>& q, std::vector<float>& d, Vector2i& result) {
@@ -177,10 +201,10 @@ public:
 	{
 		int ks1 = getKey(s1);
 		int ks2 = getKey(s2);
-		float ndist = deeeeeeeee[ks1] + dist(Vector2i(myCase[s1.y][s1.x]), Vector2i(myCase[s2.y][s2.x]));
+		float ndist = d[ks1] + dist(Vector2i(myCase[s1.y][s1.x]), Vector2i(myCase[s2.y][s2.x]));
 		//float ndist = d[ks1] + dist(s1, s2);
-		if (deeeeeeeee[ks2] > ndist) {
-			deeeeeeeee[ks2] = ndist;
+		if (d[ks2] > ndist) {
+			d[ks2] = ndist;
 			dij_pred[s2] = s1;
 		}
 	}
@@ -208,12 +232,13 @@ public:
 		vector<Vector2i> q = allNodes;
 		while (q.size()) {
 			Vector2i s1;
-			bool ok = dij_findMin(q, deeeeeeeee, s1);
+			bool ok = dij_findMin(q, d, s1);
 			auto pos = std::find(q.begin(), q.end(), s1);
 			if (pos != q.end())
 				q.erase(pos);
 
 			vector<Vector2i> neighbours = dij_getNeighbours(s1, inCase);
+			if (neighbours.size() == 0) q.clear(); /// ??????
 			for (auto& s2 : neighbours)
 				dij_update(s1, s2, myCase);
 		}
@@ -239,6 +264,7 @@ public:
 	{
 		if (myPosInCase == target)
 		{
+			textTurn.setString(std::to_string(turn));
 			return true;
 		}
 		createsNodes(myCase, inCase, myPosInCase);
@@ -247,10 +273,6 @@ public:
 		Vector2i sfin = Vector2i((int)target.x, (int)target.y);
 
 		Vector2i a = dij_pred[sdeb];
-		if (sdeb == sfin)
-		{
-			cout << " C'est la meme !!!!" << endl;
-		}
 		myPosInCase = myCase[dij_pred[sdeb].x][dij_pred[sdeb].y];
 		setPosition(myPosInCase);
 		return false;
@@ -282,8 +304,8 @@ public:
 		}
 	}*/
 
-	/// pas encore bon
-	Vector2f p(Vector2f pos, Vector2f myCase[9][6],Vector2f StartPos, int inCase[8][6])
+	/// temp
+	Vector2f positionTarget(Vector2f pos, Vector2f myCase[9][6], Vector2f StartPos, int inCase[8][6])
 	{
 		float tempDist = 1000 * 1000 * 1000;
 		Vector2f tempCas;
@@ -292,7 +314,7 @@ public:
 				if ((x == 0 && y == 0) || (x == -1 && y == -1) || (x == -1 && y == 1) || (x == 1 && y == -1) || (x == 1 && y == 1))
 					continue;
 
-				if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist && 
+				if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist &&
 					isFree(pos.x - x, pos.y - y, inCase) && StartPos != myCase[(int)pos.x - x][(int)pos.y - y])
 				{
 					tempCas = myCase[(int)pos.x - x][(int)pos.y - y];
@@ -301,42 +323,52 @@ public:
 
 			}
 		}
+		cout << tempCas.x << "y : " << tempCas.y << endl;
+		//tempCas = StartPos;
 		return tempCas;
 	}
 
 	player FindPlayer(vector<player> p)
 	{
 		float health(200);
-		player pla;
+		player P;
 		for (player var : p)
 		{
-			cout << var.health << endl;
 			if (var.health < health)
 			{
 				health = var.health;
-				pla = var;
-				dir = pla.getPosition() - enemy.getPosition();
+				P = var;
+				dir = P.getPosition() - enemy.getPosition();
 			}
 		}
-		return pla;
+		return P;
 	}
 
-	float timeAttack = 0.1;
+	float timeAttack = 0.6;
 	Vector2f dir;
-	bool attack(Vector2f player, float dt)
+	bool attack(Vector2f player, float dt, Vector2f startPos)
 	{
-		dir = dir / sqrt((dir.x * dir.x) + (dir.y * dir.y));
-		cout << dir.x << " y: " << dir.y << endl;
-		dir = Vector2f(dir.x * 3, dir.y * 3);
-		//Longueur Vecteur |V|=racine carré de ((Vx * Vx) + (Vy * Vy))
-		//normalisé Vecteur : U = V / |V |
-		enemy.move(dir);
 		timeAttack -= dt;
-		if (timeAttack <= 0)
+		if (timeAttack <= 0.25)
 		{
-			enemy.move(-dir);
-			timeAttack = 1;
-			return true;
+			if (timeAttack <= 0)
+			{
+				setPosition(startPos);
+				timeAttack = 0.6;
+				return true;
+			}
+		}
+		else
+		{
+			Vector2f direction = Vector2f(player.x - getPosition().x, (player.y - getPosition().y));
+			float norme = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+			direction = direction / norme;
+
+			enemy.move(direction);
+			healthBar.move(direction);
+			healthBarBg.move(direction);
+			circle.move(direction);
+			textTurn.move(direction);
 		}
 		return false;
 	}
@@ -381,6 +413,8 @@ public:
 	{
 		win.draw(enemy);
 		win.draw(EnemyImage);
+		win.draw(circle);
+		win.draw(textTurn);
 
 		win.draw(this->healthBarBg);
 		win.draw(this->healthBar);

@@ -152,15 +152,16 @@
     <ClCompile Include="SFML_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="Blanc.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GState.h" />
     <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="Lib.hpp" />
     <ClInclude Include="MainMenu.hpp" />
     <ClInclude Include="particule.hpp" />
     <ClInclude Include="player.hpp" />
+    <ClInclude Include="tuto.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

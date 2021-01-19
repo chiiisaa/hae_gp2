@@ -8,11 +8,10 @@
 #include "Game.hpp"
 #include "Lib.hpp"
 #include "MainMenu.hpp"
+#include "tuto.hpp"
 
 using namespace std;
 using namespace sf;
-
-enum class m { a, b };
 
 int main()
 {
@@ -38,7 +37,7 @@ int main()
 
 	Game g(&window);
 	MainMenu menu(&window,640, 960);
-	LevelManager LV;
+	tuto t;
 
 	while (window.isOpen())
 	{
@@ -68,11 +67,11 @@ int main()
 				window.clear();
 				menu.draw(window);
 				break;
-			case LevelState:
+			case TutoState:
 				while (window.pollEvent(event))
-					LV.nextLevel();
+					t.processInput(event, gameState);
 				window.clear();
-				LV.draw(window);
+				t.draw(window);
 				break;
 		default:
 			break;
