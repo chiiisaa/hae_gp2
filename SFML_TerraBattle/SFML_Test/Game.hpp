@@ -315,5 +315,28 @@ public:
 			m.play();
 		}
 	}
+
+	player PositionLibre(Vector2f posTarget,player p)
+	{
+		Vector2f pos = SearchValueInMyCase(posTarget);
+		for (int x = -1; x <= 1; x++) {
+			for (int y = -1; y <= 1; y++) {
+				if ((x == 0 && y == 0) || (x == -1 && y == -1) || (x == -1 && y == 1) || (x == 1 && y == -1) || (x == 1 && y == 1))
+					continue;
+
+				if (pos.x - x >= 0 && pos.x - x <= 7 && pos.y - y >= 0 && pos.y - y <= 5)
+				{
+					if(inCase[(int)pos.x - x][(int)pos.y - y] == 0 || myCase[(int)pos.x - x][(int)pos.y - y] == EnemyStartMovePos) return p;
+				}
+
+			}
+		}
+		if (AllPlayer.size() > 0) return AllPlayer[1];
+		else
+		{
+			setState(playerTurn);
+		}
+
+	}
 };
 

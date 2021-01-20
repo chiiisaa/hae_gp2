@@ -322,9 +322,9 @@ Vector2f Game::distanceBetweenCase(bool isPlayer)
 //si on touche un enemy
 bool Game::degatEnemy()
 {
-	for (int y = 0; y < 7; y++)
+	for (int y = 0; y < 8; y++)
 	{
-		for (int x = 0; x < 5; x++)
+		for (int x = 0; x <= 5; x++)
 		{
 			if (inCase[y][x] == -1)
 			{
@@ -485,10 +485,13 @@ void Game::update(float dt) {
 			timeForEnemy = 0.5;
 
 			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
-			enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
-			cout << "enemyTarget : " << enemyTarget.getPosition().x << enemyTarget.getPosition().y << endl;
+
+			/*enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
+			enemyTarget = PositionLibre(enemyTarget.getPosition(), enemyTarget);*/
+
+			//cout << "enemyTarget : " << enemyTarget.getPosition().x << enemyTarget.getPosition().y << endl;
 			//Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
-			cout << "SearchValueInMyCase(enemyTarget.getPosition())" << SearchValueInMyCase(enemyTarget.getPosition()).x << "y " << SearchValueInMyCase(enemyTarget.getPosition()).y << endl;
+			//cout << "SearchValueInMyCase(enemyTarget.getPosition())" << SearchValueInMyCase(enemyTarget.getPosition()).x << "y " << SearchValueInMyCase(enemyTarget.getPosition()).y << endl;
 			Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
 			Vector2f targetpos = SearchValueInMyCase(target);
 
@@ -599,8 +602,12 @@ void Game::setState(State st) {
 	case playerTurn:
 		stateText.setString("State: playerTurn");
 		break;
+	case enemyok:
+		enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
+		enemyTarget = PositionLibre(enemyTarget.getPosition(), enemyTarget);
+		break;
 	case enemyTurn:
-		//EnemyStartMovePos = allEnemy[enemyIndex].getPosition();
+		EnemyStartMovePos = allEnemy[enemyIndex].getPosition();
 		tempsText.setString("time : 0");
 		time = 5.00;
 		stateText.setString("State: enemyTurn");

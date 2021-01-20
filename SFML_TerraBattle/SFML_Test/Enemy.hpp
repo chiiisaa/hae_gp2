@@ -295,7 +295,6 @@ public:
 
 			}
 		}
-		cout << tempCas.x << "y : " << tempCas.y << endl;
 		//tempCas = StartPos;
 		if (tempCas == Vector2f(0,0)) return StartPos; 
 		return tempCas;

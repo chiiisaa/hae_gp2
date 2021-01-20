@@ -67,15 +67,10 @@ public:
 		case 0:
 			numbreOfCharacter["Personage"] = 2;
 			numbreOfCharacter["Healer"] = 1;
-			numbreOfCharacter["Enemy"] = 3;
-			EnemyTurn[0] = 3;
-			EnemyTurn[1] = 2;
-			EnemyTurn[2] = 1;
+			numbreOfCharacter["Enemy"] = 1;
 			PositionPerso[0] = Vector2i(1, 1);
 			PositionPerso[1] = Vector2i(4, 1);
 			PositionE[0] = Vector2i(2, 5);
-			PositionE[1] = Vector2i(3, 2);
-			PositionE[2] = Vector2i(5, 5);
 			PositionHealer[0] = Vector2i(3, 4);
 			break;
 		case 1:
@@ -100,7 +95,10 @@ public:
 		case 3:
 			numbreOfCharacter["Personage"] = 2;
 			numbreOfCharacter["Healer"] = 1;
-			numbreOfCharacter["Enemy"] = 1;
+			numbreOfCharacter["Enemy"] = 3;
+			EnemyTurn[0] = 3;
+			EnemyTurn[1] = 2;
+			EnemyTurn[2] = 1;
 			PositionPerso[0] = Vector2i(1, 1);
 			PositionPerso[1] = Vector2i(4, 1);
 			PositionE[0] = Vector2i(2, 5);
