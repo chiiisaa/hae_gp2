@@ -56,6 +56,7 @@ public:
 	Enemy en;
 	vector<Enemy> allEnemy;
 	vector<int> EnemyMove;
+	bool errrrrr;
 
 	RectangleShape LigneX;
 	RectangleShape LigneY;
@@ -199,14 +200,18 @@ public:
 						Nextbool = true;
 						//changeLevel();
 						i = 0;
+						AllPlayer[Playeri].reset();
+						AllPlayer[playerIndex].reset();
 						setState(wait);
 
-						if (Lv.indexLevel >= 3) setState(Win);
+						if (Lv.indexLevel >= 2) setState(Win);
 					}
 					else
 					{
 						if (enemyIndex != 0) enemyIndex--; //temp
 						i = 0;
+						AllPlayer[Playeri].reset();
+						AllPlayer[playerIndex].reset();
 						setState(enemyTurn);
 					}
 				}
@@ -214,7 +219,7 @@ public:
 			else
 			{
 				i = 0;
-				//AllPlayer[Playeri].reset(); AllPlayer[playerIndex].reset();
+				AllPlayer[Playeri].reset(); AllPlayer[playerIndex].reset();
 				setState(enemyTurn);
 			}
 		}
@@ -336,7 +341,6 @@ public:
 		{
 			setState(playerTurn);
 		}
-
 	}
 };
 

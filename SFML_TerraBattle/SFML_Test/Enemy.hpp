@@ -255,9 +255,8 @@ public:
 		}
 		createsNodes(myCase, inCase, myPosInCase);
 		dij_process(target, inCase, myCase);
-		Vector2i sdeb = Vector2i((int)myPosInCase.x, (int)myPosInCase.y);
-		Vector2i sfin = Vector2i((int)target.x, (int)target.y);
-
+		Vector2i sdeb = Vector2i(myPosInCase.x, myPosInCase.y);
+		Vector2i sfin = Vector2i(target.x, target.y);
 		Vector2i a = dij_pred[sdeb];
 		myPosInCase = myCase[dij_pred[sdeb].x][dij_pred[sdeb].y];
 		setPosition(myPosInCase);
@@ -266,7 +265,7 @@ public:
 
 
 	/// temp
-	Vector2f positionTarget(Vector2f pos, Vector2f myCase[9][6], Vector2f StartPos, int inCase[8][6])
+	Vector2f positionTarget(Vector2f targetPos, Vector2f myCase[9][6], Vector2f StartPos, int inCase[8][6])
 	{
 		float tempDist = 1000 * 1000 * 1000;
 		Vector2f tempCas;
@@ -283,12 +282,12 @@ public:
 					tempDist = dist((Vector2i)StartPos, (Vector2i)tempCas);
 				}*/
 
-				if (pos.x - x >= 0 && pos.x - x <= 7 && pos.y - y >= 0 && pos.y - y <= 5)
+				if (targetPos.x - x >= 0 && targetPos.x - x <= 7 && targetPos.y - y >= 0 && targetPos.y - y <= 5)
 				{
-					if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)pos.x - x][(int)pos.y - y]) < tempDist &&
-						isFree(pos.x - x, pos.y - y, inCase) && StartPos != myCase[(int)pos.x - x][(int)pos.y - y])
+					if (dist((Vector2i)StartPos, (Vector2i)myCase[(int)targetPos.x - x][(int)targetPos.y - y]) < tempDist &&
+						isFree(targetPos.x - x, targetPos.y - y, inCase) && StartPos != myCase[(int)targetPos.x - x][(int)targetPos.y - y])
 					{
-						tempCas = myCase[(int)pos.x - x][(int)pos.y - y];
+						tempCas = myCase[(int)targetPos.x - x][(int)targetPos.y - y];
 						tempDist = dist((Vector2i)StartPos, (Vector2i)tempCas);
 					}
 				}
@@ -296,7 +295,8 @@ public:
 			}
 		}
 		//tempCas = StartPos;
-		if (tempCas == Vector2f(0,0)) return StartPos; 
+		if (tempCas == Vector2f(0,0)) return StartPos;
+
 		return tempCas;
 	}
 

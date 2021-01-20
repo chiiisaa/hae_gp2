@@ -96,7 +96,7 @@ void Game::processInput(Event ev)
 	if (ev.type == Event::Closed)
 		win->close();
 
-	if (ev.key.code == Keyboard::Key::P)
+	/*if (ev.key.code == Keyboard::Key::P)
 	{
 		for (int y = 0; y < 8; y++)
 		{
@@ -106,16 +106,9 @@ void Game::processInput(Event ev)
 			}
 			cout << endl;
 		}
-	}
+	}*/
 
-	if (ev.type == Event::KeyPressed) {
-		if (ev.key.code == Keyboard::Key::H)
-		{
-			AllPlayer[0].setPosition(Vector2f(286, 324));
-		}
-	}
-
-	/// <summary>
+	/*/// <summary>
 	/// TESTE Enemy movement
 	/// </summary>
 	/// <param name="ev"></param>
@@ -124,7 +117,7 @@ void Game::processInput(Event ev)
 		{
 			Nextbool = !Nextbool;
 		}
-	}
+	}*/
 
 	if (Nextbool)
 	{
@@ -218,8 +211,10 @@ void Game::processInput(Event ev)
 			}
 			else
 			{
+				Vector2f a = SearchValueInMyCase(LastPlayerPos);
+				cout << a.x << a.y << endl;
 				AllPlayer[Playeri].setPosition(LastPlayerPos);
-				inCase[(int)SearchValueInMyCase(LastPlayerPos).x][(int)SearchValueInMyCase(LastPlayerPos).y] == 1;
+				inCase[(int)a.x][(int)a.y] == 1;
 			}
 
 			mouseInPlayer = false;
@@ -328,7 +323,7 @@ bool Game::degatEnemy()
 		{
 			if (inCase[y][x] == -1)
 			{
-				if (inCase[y - 1][x] == 1 && inCase[y + 1][x] == 1)
+				if (y + 1 < 8 && inCase[y - 1][x] == 1 && inCase[y + 1][x] == 1)
 				{
 					enemyIndex = getEnemy(myCase[y][x]);
 					Playeri = getPlayer(myCase[y - 1][x]);
@@ -338,7 +333,7 @@ bool Game::degatEnemy()
 					setState(playerStartAttack);
 					return true;
 				}
-				if (inCase[y][x - 1] == 1 && inCase[y][x + 1] == 1)
+				if (x + 1 <=5 && inCase[y][x - 1] == 1 && inCase[y][x + 1] == 1)
 				{
 					enemyIndex = getEnemy(myCase[y][x]);
 					Playeri = getPlayer(myCase[y][x - 1]);
@@ -413,9 +408,23 @@ void Game::update(float dt) {
 			tempsText.setString("time : 0");
 			if (mouseInPlayer) // si le temps = 0 et qu'on "déplace" encore le player avec la souris
 			{
-				AllPlayer[Playeri].setPosition(distanceBetweenCase(true)); // on met la position avec la case la plus proche 
+
+				Vector2f tpos = distanceBetweenCase(false);
+				if (inCase[(int)SearchValueInMyCase(tpos).x][(int)SearchValueInMyCase(tpos).y] == 0)
+				{
+					AllPlayer[Playeri].setPosition(distanceBetweenCase(true));
+				}
+				else
+				{
+				
+					inCase[(int)SearchValueInMyCase(LastPlayerPos).x][(int)SearchValueInMyCase(LastPlayerPos).y] == 1;
+					AllPlayer[Playeri].setPosition(LastPlayerPos);
+
+				}
+				//AllPlayer[Playeri].setPosition(distanceBetweenCase(true)); // on met la position avec la case la plus proche 
 				mouseInPlayer = false;
 			}
+			
 			if (state == playerTurn)
 			{
 				time = 5.00;
@@ -486,12 +495,6 @@ void Game::update(float dt) {
 
 			Vector2f Enemypos = SearchValueInMyCase(allEnemy[enemyIndex].getPosition());
 
-			/*enemyTarget = allEnemy[enemyIndex].FindPlayer(AllPlayer);
-			enemyTarget = PositionLibre(enemyTarget.getPosition(), enemyTarget);*/
-
-			//cout << "enemyTarget : " << enemyTarget.getPosition().x << enemyTarget.getPosition().y << endl;
-			//Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
-			//cout << "SearchValueInMyCase(enemyTarget.getPosition())" << SearchValueInMyCase(enemyTarget.getPosition()).x << "y " << SearchValueInMyCase(enemyTarget.getPosition()).y << endl;
 			Vector2f target = allEnemy[enemyIndex].positionTarget(SearchValueInMyCase(enemyTarget.getPosition()), myCase, EnemyStartMovePos, inCase);
 			Vector2f targetpos = SearchValueInMyCase(target);
 
@@ -659,6 +662,14 @@ void Game::changeLevel()
 		}
 	}
 
+	for (int i = 0; i < Lv.numbreOfCharacter.at("Healer"); i++)
+	{
+		player PH(true);
+		PH.setPosition(myCase[Lv.PositionHealer.at(i).x][Lv.PositionHealer.at(i).y]);
+		inCase[Lv.PositionHealer.at(i).x][Lv.PositionHealer.at(i).y] = 1;
+		AllPlayer.push_back(PH);
+	}
+
 	for (int i = 0; i < Lv.numbreOfCharacter.at("Personage"); i++)
 	{
 		Player.setPosition(myCase[Lv.PositionPerso.at(i).x][Lv.PositionPerso.at(i).y]);
@@ -670,6 +681,12 @@ void Game::changeLevel()
 	{
 		en.setPosition(myCase[Lv.PositionE.at(i).x][Lv.PositionE.at(i).y]);
 		inCase[Lv.PositionE.at(i).x][Lv.PositionE.at(i).y] = -1;
+		en.setTurn(Lv.EnemyTurn[i]);
 		allEnemy.push_back(en);
+	}
+
+	for (int i = 0; i < Lv.numbreOfCharacter.at("Healer"); i++)
+	{
+		AllPlayer[i].SetHealer();
 	}
 }

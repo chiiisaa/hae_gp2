@@ -55,6 +55,8 @@ public:
 		numbreOfCharacter.clear();
 		PositionPerso.clear();
 		PositionE.clear();
+		PersoHealer.clear();
+		PositionHealer.clear();
 		indexLevel++;
 		loadLevel(indexLevel);
 		cout << indexLevel << endl;
@@ -71,28 +73,22 @@ public:
 			PositionPerso[0] = Vector2i(1, 1);
 			PositionPerso[1] = Vector2i(4, 1);
 			PositionE[0] = Vector2i(2, 5);
+			EnemyTurn[0] = 1;
 			PositionHealer[0] = Vector2i(3, 4);
 			break;
 		case 1:
 			numbreOfCharacter["Personage"] = 3;
+			numbreOfCharacter["Healer"] = 0;
 			numbreOfCharacter["Enemy"] = 2;
 			PositionPerso[0] = Vector2i(2, 2);
 			PositionPerso[1] = Vector2i(4, 1);
 			PositionPerso[2] = Vector2i(4, 5);
 			PositionE[0] = Vector2i(2, 5);
 			PositionE[1] = Vector2i(3, 2);
+			EnemyTurn[0] = 1;
+			EnemyTurn[1] = 2;
 			break;
 		case 2:
-			numbreOfCharacter["Personage"] = 3;
-			numbreOfCharacter["Enemy"] = 3;
-			PositionPerso[0] = Vector2i(1, 1);
-			PositionPerso[1] = Vector2i(4, 1);
-			PositionPerso[2] = Vector2i(3, 4);
-			PositionE[0] = Vector2i(2, 5);
-			PositionE[1] = Vector2i(3, 2);
-			PositionE[2] = Vector2i(5, 5);
-			break;
-		case 3:
 			numbreOfCharacter["Personage"] = 2;
 			numbreOfCharacter["Healer"] = 1;
 			numbreOfCharacter["Enemy"] = 3;
@@ -105,6 +101,19 @@ public:
 			PositionE[1] = Vector2i(3, 2);
 			PositionE[2] = Vector2i(5, 5);
 			PositionHealer[0] = Vector2i(3, 4);
+			break;
+		case 3:
+			numbreOfCharacter["Personage"] = 3;
+			numbreOfCharacter["Enemy"] = 3;
+			PositionPerso[0] = Vector2i(1, 1);
+			PositionPerso[1] = Vector2i(4, 1);
+			PositionPerso[2] = Vector2i(3, 4);
+			PositionE[0] = Vector2i(2, 5);
+			PositionE[1] = Vector2i(3, 2);
+			PositionE[2] = Vector2i(5, 5);
+			EnemyTurn[0] = 1;
+			EnemyTurn[1] = 2;
+			EnemyTurn[2] = 2;
 			break;
 		default:
 			break;

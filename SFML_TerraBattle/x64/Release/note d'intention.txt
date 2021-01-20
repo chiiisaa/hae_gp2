@@ -1,0 +1,4 @@
+Une note d’intention : Faire un jeu qui se raproche de terrabeattle avec les compétences que j'ai
+Les problèmes connus : j'ai eu beaucoup de bugs à la fin parce que je n'ai pas assez fait tester le jeu, j'ai eu beaucoup de mal programmer les ennemies, le quadrillage également
+Ce que vous pensez de votre jeu : je suis plutôt contente, même s'il reste beaucoup de choses à améliorer et à régler
+Ce que vous auriez fait différemment avec ce que vous savez maintenant : J'aurais faits des tests beaucoup plusieurs tot, je ferais
